@@ -4,7 +4,7 @@
 
 ### Know where every ringgit goes.
 
-[![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei)
+[![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei/aman)
 [![Zero Code](https://img.shields.io/badge/application%20code-zero-brightgreen)](#how-it-works)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -32,7 +32,7 @@ Just text your AI what you spent.
 
 Aman Money tracks everything, shows you the truth, and helps you save — via Telegram, zero friction. No app to open. No receipt to scan. No categories to pick. Just message it like you'd message a friend who happens to be obsessively good with money.
 
-> Built with zero application code — just markdown configuration + the [aman ecosystem](https://github.com/amanasmuei).
+> Built with zero application code — just markdown configuration + the [aman ecosystem](https://github.com/amanasmuei/aman).
 
 ---
 
@@ -199,7 +199,7 @@ money/
 └── config/setup.sh               → One-command setup with backup
 ```
 
-The [aman ecosystem](https://github.com/amanasmuei) provides:
+The [aman ecosystem](https://github.com/amanasmuei/aman) provides:
 
 | Layer | Package | What it does for Aman Money |
 |-------|---------|------------------------------|
@@ -267,7 +267,7 @@ MIT
 
 <div align="center">
 
-**Built with the [aman ecosystem](https://github.com/amanasmuei)**
+**Built with the [aman ecosystem](https://github.com/amanasmuei/aman)**
 
 *Know where every ringgit goes.*
 

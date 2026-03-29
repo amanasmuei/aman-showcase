@@ -6,7 +6,7 @@
 
 [![Showcases](https://img.shields.io/badge/showcases-10-blueviolet)](https://github.com/amanasmuei/aman-showcase)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei)
+[![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei/aman)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/amanasmuei/aman-showcase/pulls)
 
 **Build intelligent AI companions using just markdown files.**<br>
@@ -43,7 +43,7 @@ Every AI chatbot forgets you. You explain your context, get help, close the chat
 
 **aman-showcase companions remember.** They know your vocabulary, your workout history, your clients, your team's decisions. They pick up exactly where you left off. Every single time.
 
-This is possible because each showcase plugs into the [aman ecosystem](https://github.com/amanasmuei) — a modular framework that gives AI companions persistent memory, identity, workflows, guardrails, and skills.
+This is possible because each showcase plugs into the [aman ecosystem](https://github.com/amanasmuei/aman) — a modular framework that gives AI companions persistent memory, identity, workflows, guardrails, and skills.
 
 **And the best part?** You don't write a single line of code. Each showcase is just a folder of markdown files.
 
@@ -208,7 +208,7 @@ MIT — use it, fork it, build with it.
 
 <div align="center">
 
-**Built with the [aman ecosystem](https://github.com/amanasmuei)**
+**Built with the [aman ecosystem](https://github.com/amanasmuei/aman)**
 
 *Give your AI a soul. Not just a prompt.*
 

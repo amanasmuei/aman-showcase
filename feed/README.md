@@ -4,7 +4,7 @@
 
 ### Your personal information companion — signal, not noise
 
-[![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei)
+[![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei/aman)
 [![Zero Code](https://img.shields.io/badge/application%20code-zero-brightgreen)](#how-it-works)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -28,7 +28,7 @@ News apps push what gets clicks, not what matters to you. Alerts are noise. Feed
 
 Aman Feed learns your interests, delivers personalized briefings, remembers what you've read, and goes deep when you ask. No noise. Just signal.
 
-> Built with zero application code — just markdown configuration + the [aman ecosystem](https://github.com/amanasmuei).
+> Built with zero application code — just markdown configuration + the [aman ecosystem](https://github.com/amanasmuei/aman).
 
 ---
 
@@ -224,7 +224,7 @@ feed/
 └── config/setup.sh               → One-command setup with backup
 ```
 
-The [aman ecosystem](https://github.com/amanasmuei) provides the engine:
+The [aman ecosystem](https://github.com/amanasmuei/aman) provides the engine:
 
 | Layer | Package | What it does for Aman Feed |
 |-------|---------|---------------------------|
@@ -279,7 +279,7 @@ MIT
 
 <div align="center">
 
-**Built with the [aman ecosystem](https://github.com/amanasmuei)**
+**Built with the [aman ecosystem](https://github.com/amanasmuei/aman)**
 
 *Your news. Your interests. Your AI.*
 

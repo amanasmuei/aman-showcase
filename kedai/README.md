@@ -4,7 +4,7 @@
 
 ### Your kedai's digital partner — for any small business in Malaysia
 
-[![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei)
+[![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei/aman)
 [![Zero Code](https://img.shields.io/badge/application%20code-zero-brightgreen)](#how-it-works)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -36,7 +36,7 @@ The bot tracks transactions, remembers regulars, manages inventory, and gives yo
 
 End of day? Say "how was today" and get your full report.
 
-> Built with zero application code — just markdown configuration + the [aman ecosystem](https://github.com/amanasmuei).
+> Built with zero application code — just markdown configuration + the [aman ecosystem](https://github.com/amanasmuei/aman).
 
 ---
 
@@ -220,7 +220,7 @@ kedai/
 └── config/setup.sh               → One-command setup with backup
 ```
 
-The [aman ecosystem](https://github.com/amanasmuei) provides the engine:
+The [aman ecosystem](https://github.com/amanasmuei/aman) provides the engine:
 
 | Layer | Package | What it does for Aman Kedai |
 |-------|---------|----------------------------|
@@ -289,7 +289,7 @@ MIT
 
 <div align="center">
 
-**Built with the [aman ecosystem](https://github.com/amanasmuei)**
+**Built with the [aman ecosystem](https://github.com/amanasmuei/aman)**
 
 *Every kedai deserves a digital partner.*
 

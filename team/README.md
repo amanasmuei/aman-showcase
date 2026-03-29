@@ -4,7 +4,7 @@
 
 ### Your team's memory. Not just another bot.
 
-[![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei)
+[![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei/aman)
 [![Zero Code](https://img.shields.io/badge/application%20code-zero-brightgreen)](#how-it-works)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -32,7 +32,7 @@ It runs standups. It logs decisions with context. It tracks projects and blocker
 
 It doesn't need a separate app. It doesn't need a dashboard nobody looks at. It lives where your team already talks.
 
-> Built with zero application code — just markdown configuration + the [aman ecosystem](https://github.com/amanasmuei).
+> Built with zero application code — just markdown configuration + the [aman ecosystem](https://github.com/amanasmuei/aman).
 
 ---
 
@@ -262,7 +262,7 @@ team/
 └── config/setup.sh               → One-command setup with backup
 ```
 
-The [aman ecosystem](https://github.com/amanasmuei) provides:
+The [aman ecosystem](https://github.com/amanasmuei/aman) provides:
 
 | Layer | Package | What it does for Aman Team |
 |-------|---------|---------------------------|
@@ -332,7 +332,7 @@ MIT
 
 <div align="center">
 
-**Built with the [aman ecosystem](https://github.com/amanasmuei)**
+**Built with the [aman ecosystem](https://github.com/amanasmuei/aman)**
 
 *Your team's memory. Not just another bot.*
 

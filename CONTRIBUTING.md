@@ -34,7 +34,7 @@
 |------|-----|--------|
 | **Test showcases end-to-end** | Set up a Telegram bot, run a showcase, report what works/breaks. | Very High |
 | **Improve setup scripts** | Better error handling, cross-platform support, Docker setup. | High |
-| **Ecosystem improvements** | Found a limitation? Contribute to the [aman ecosystem](https://github.com/amanasmuei) packages. | Very High |
+| **Ecosystem improvements** | Found a limitation? Contribute to the [aman ecosystem](https://github.com/amanasmuei/aman) packages. | Very High |
 
 ---
 

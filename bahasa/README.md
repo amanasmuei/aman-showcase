@@ -4,7 +4,7 @@
 
 ### A free AI language tutor that never forgets your progress
 
-[![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei)
+[![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei/aman)
 [![Zero Code](https://img.shields.io/badge/application%20code-zero-brightgreen)](#how-it-works)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -32,7 +32,7 @@ It knows you struggled with *"masak"* vs *"makan"* last week. It knows you prefe
 
 It picks up exactly where you left off. Every single time.
 
-> Built with zero application code — just markdown configuration + the [aman ecosystem](https://github.com/amanasmuei).
+> Built with zero application code — just markdown configuration + the [aman ecosystem](https://github.com/amanasmuei/aman).
 
 ---
 
@@ -191,7 +191,7 @@ bahasa/
 └── config/setup.sh           → One-command setup with backup
 ```
 
-The [aman ecosystem](https://github.com/amanasmuei) provides:
+The [aman ecosystem](https://github.com/amanasmuei/aman) provides:
 
 | Layer | Package | What it does for Bahasa |
 |-------|---------|------------------------|
@@ -273,7 +273,7 @@ MIT
 
 <div align="center">
 
-**Built with the [aman ecosystem](https://github.com/amanasmuei)**
+**Built with the [aman ecosystem](https://github.com/amanasmuei/aman)**
 
 *An AI tutor that grows with you — not one that forgets you.*
 

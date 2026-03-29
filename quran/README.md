@@ -4,7 +4,7 @@
 
 ### Understand what you recite
 
-[![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei)
+[![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei/aman)
 [![Zero Code](https://img.shields.io/badge/application%20code-zero-brightgreen)](#how-it-works)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -197,7 +197,7 @@ quran/
 └── config/setup.sh               → One-command setup with backup
 ```
 
-The [aman ecosystem](https://github.com/amanasmuei) provides memory, delivery channels, and runtime — so every word you learn is remembered forever.
+The [aman ecosystem](https://github.com/amanasmuei/aman) provides memory, delivery channels, and runtime — so every word you learn is remembered forever.
 
 ---
 
@@ -256,7 +256,7 @@ MIT
 
 <div align="center">
 
-**Built with the [aman ecosystem](https://github.com/amanasmuei)**
+**Built with the [aman ecosystem](https://github.com/amanasmuei/aman)**
 
 *Understand the words you already love.*
 
