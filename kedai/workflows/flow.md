@@ -1,58 +1,66 @@
 # Aman Kedai Workflows
 
-## order
-When the owner logs an order or says "[customer] ordered [items]":
-1. Parse — extract customer name, items, quantities, and modifications.
-2. Price — calculate each item from the menu in memory. Flag if an item isn't on the menu.
-3. Confirm — show the order summary:
+## transaction
+When the owner logs a sale, order, or appointment:
+1. Parse — extract customer name, items/services, quantities, modifications.
+2. Price — calculate from inventory/menu in memory. Flag unknown items.
+3. Confirm — show structured summary:
    ```
-   Order #005 — Ali (dine-in)
+   #005 — Ali
    2x Nasi Lemak        RM 14.00
-   1x Teh Tarik          RM 3.50
-   1x Roti Canai          RM 2.50
-   Total: RM 20.00
+   1x Teh Tarik          RM  3.50
+   Total: RM 17.50
    ```
-4. Customer — if known regular, note any preferences. If new, create profile.
-5. Save — store order to memory with all details.
-6. Running total — "Today: 5 orders, RM 120.00 total"
+   (Adapt format to business type — services show duration, repairs show device info, etc.)
+4. Customer — if known regular, note preferences. If new, create profile.
+5. Save — store transaction with all details.
+6. Running total — "Today: 5 transactions, RM 187.50"
 
 ## customer
-When the owner asks about a customer or says "who is [name]" / "[name]'s usual":
+When the owner asks about a customer:
 1. Recall — search memory for customer profile.
-2. Show — name, visit count, favorite orders, modifications, allergies, average spend.
-3. Suggest — "Ali usually orders: 2x Nasi Lemak (extra sambal, no cucumber) + 1x Teh Tarik"
-4. If "the usual": generate the order from their saved preferences.
+2. Show — name, visit count, preferences, history, average spend, special notes.
+3. Suggest — show their usual order/service if they're a regular.
+4. If "the usual" / "macam biasa": generate the transaction from saved preferences.
 
-## menu
-When the owner updates the menu or says "add [item]" / "change price" / "sold out":
-1. If adding: ask for name, price, and category. Save to memory.
-2. If changing price: update the item in memory. Note old price for reference.
-3. If sold out: mark item as unavailable. "Nasi Lemak is now sold out. I won't include it in orders."
-4. If back in stock: mark available again.
-5. If viewing: show full menu as a table with prices and availability.
+## inventory
+When the owner updates inventory, menu, or services:
+1. If adding: name, price, category. Save to memory.
+2. If changing price: update in memory. Note old price.
+3. If sold out / unavailable: mark status. Don't include in new transactions.
+4. If restocked / available: mark active again.
+5. If viewing: show full list as table with prices and status.
 
 ## daily
-When the owner asks "how was today" / "daily summary" / "close":
-1. Orders — total number of orders today.
-2. Revenue — total RM collected.
-3. Popular — top 3 most ordered items with quantities.
-4. Customers — how many unique customers, how many were regulars.
-5. Status — any pending/unpaid orders?
-6. Compare — vs yesterday or same day last week if data exists.
-7. Save — store daily summary to memory.
+When the owner asks "how was today" / "daily summary" / "tutup kedai":
+1. Transactions — total count today.
+2. Revenue — total RM.
+3. Popular — top 3 items/services with quantities.
+4. Customers — unique count, regulars vs new.
+5. Pending — any incomplete transactions?
+6. Compare — vs yesterday or last week if data exists.
+7. Save — store daily summary.
 
 ## weekly
-When the owner asks "weekly report" / "this week":
-1. Overview — total orders, total revenue, daily averages.
-2. Trends — busiest day, slowest day, peak hours (if tracked).
-3. Popular — top 5 items for the week.
+When the owner asks "weekly report" / "minggu ini":
+1. Overview — total transactions, revenue, daily averages.
+2. Trends — busiest day, slowest day.
+3. Popular — top 5 items/services.
 4. Customers — new vs returning, top spenders.
-5. Compare — vs previous week if data exists.
-6. Insight — one actionable observation: "Roti Canai sales up 40% — consider promoting it."
+5. Compare — vs previous week.
+6. Insight — one actionable observation.
 
 ## special
-When the owner adds a daily special:
-1. Capture — item name, price, description, quantity available.
-2. Save — store as today's special in memory.
+When the owner adds a daily special or promotion:
+1. Capture — item/service, price, description, quantity/slots available.
+2. Save — store as today's special.
 3. Track — count how many sold. Alert when running low.
-4. End of day — report how the special performed.
+4. End of day — report performance.
+
+## setup
+When a new owner starts for the first time:
+1. Ask — "What type of kedai do you run?" (makan, kopi, gunting, dobi, telefon, bunga, kek, runcit, other)
+2. Store — save business type to memory.
+3. Adapt — switch vocabulary and workflow language to match.
+4. Menu/Services — ask them to share their items/services and prices.
+5. Ready — "Your Aman Kedai is set up! Start logging transactions and I'll remember everything."

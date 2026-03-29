@@ -2,15 +2,15 @@
 
 # Aman Kedai
 
-### Your restaurant's digital partner.
+### Your kedai's digital partner — for any small business in Malaysia
 
 [![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei)
 [![Zero Code](https://img.shields.io/badge/application%20code-zero-brightgreen)](#how-it-works)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A restaurant assistant on Telegram that tracks your orders, remembers your regulars, manages your menu, and gives you a daily sales report — all without writing a single line of code.
+A Telegram assistant that tracks transactions, remembers your regulars, manages your inventory, and gives you daily reports — for any kedai, without writing a single line of code.
 
-[Quick Start](#-quick-start) · [Features](#-what-can-it-do) · [Commands](#commands-reference) · [How It Works](#-how-it-works)
+[Quick Start](#-quick-start) · [Business Types](#one-bot-every-kedai) · [Features](#-what-can-it-do) · [Commands](#commands-reference) · [How It Works](#-how-it-works)
 
 </div>
 
@@ -18,48 +18,74 @@ A restaurant assistant on Telegram that tracks your orders, remembers your regul
 
 ## The Problem
 
-Small restaurant owners take orders on paper or in their head. They don't know what sells, who their regulars are, or how today compares to yesterday. By closing time, they're too tired to count.
+Small business owners track everything in their head. Orders on paper. Customer preferences forgotten. No idea what sells best.
 
-The result: decisions made by gut feel instead of data. Popular items run out. Slow items keep getting made. Good regulars never get recognised.
+The result: decisions made by gut feel instead of data. Popular items run out. Good regulars never get recognised. Stock disappears without warning. By closing time, you're too tired to count.
 
 ## The Solution
 
-**Just text your orders as they come in.**
+**Just text what happened. The bot handles the rest.**
 
 "Ali ordered 2 nasi lemak and 1 teh tarik."
 
-The bot tracks everything — orders, customers, sales, trends. End of day? Say "how was today" and get your report.
+"Ahmad walk-in, regular cut and wash."
+
+"Puan Aminah drop off 5kg wash and fold."
+
+The bot tracks transactions, remembers regulars, manages inventory, and gives you daily reports. Works for **any kedai** — restaurants, coffee shops, salons, laundries, repair shops, florists, bakeries, groceries.
+
+End of day? Say "how was today" and get your full report.
 
 > Built with zero application code — just markdown configuration + the [aman ecosystem](https://github.com/amanasmuei).
 
 ---
 
-### Order Example
+## One Bot, Every Kedai
+
+| # | Business Type | What It Tracks |
+|---|--------------|----------------|
+| 🍛 | **Kedai Makan** | Menu items, orders, customer favourites, daily sales, sold-out items |
+| ☕ | **Kedai Kopi** | Drink orders, customer preferences (kurang manis, extra shot), peak hours |
+| 💇 | **Kedai Gunting** | Services, style preferences, appointment bookings, product recommendations |
+| 🧺 | **Kedai Dobi** | Drop-offs, weights, ready dates, pickup status, garment care notes |
+| 📱 | **Kedai Telefon** | Repairs, device history, parts inventory, warranty periods |
+| 🌸 | **Kedai Bunga** | Arrangements, occasions, delivery dates, flower preferences |
+| 🍰 | **Kedai Kek** | Custom orders, flavours, sizes, pickup dates, deposits |
+| 🛒 | **Kedai Runcit** | Sales, stock levels, reorder alerts, popular items, expiry dates |
+
+See the full guide: [content/guides/business-types.md](content/guides/business-types.md)
+
+---
+
+## It Adapts to Your Business
+
+### Restaurant Order
 
 ```
-Owner: Ali ordered 2 nasi lemak, 1 teh tarik
+Owner:  Ali ordered 2 nasi lemak, 1 teh tarik
 
-Aman Kedai: Order #012 — Ali (dine-in)
-            2x Nasi Lemak       RM 14.00
-            1x Teh Tarik         RM  3.50
-            Total: RM 17.50
+Bot:    Order #012 — Ali (dine-in)
+        2x Nasi Lemak    RM 14.00
+        1x Teh Tarik      RM  3.50
+        Total: RM 17.50
 
-            📊 Today: 12 orders, RM 187.50
-            💡 Ali's 5th visit this month — he's a regular!
+        📊 Today: 12 orders, RM 187.50
+        💡 Ali's 5th visit this month — he's a regular!
 ```
 
-### Regular Customer Example
+### Salon Service
 
 ```
-Owner: Makcik Siti the usual
+Owner:  Ahmad walk-in, regular cut and wash
 
-Aman Kedai: Makcik Siti's usual:
-            1x Nasi Lemak Special (extra sambal, no timun)
-            1x Teh Tarik (kurang manis)
-            Total: RM 13.50
-
-            Shall I log this order?
+Bot:    Service #005 — Ahmad (walk-in)
+        1x Regular Cut    RM 15.00
+        1x Hair Wash       RM  5.00
+        Total: RM 20.00
+        Note: Ahmad prefers short on sides, textured top (from last visit)
 ```
+
+Same bot. Different kedai. It just works.
 
 ---
 
@@ -94,7 +120,7 @@ bash config/setup.sh
 npx @aman_asmuei/achannel serve
 ```
 
-**That's it.** Message your bot on Telegram. Tell it your menu, then start logging orders.
+**That's it.** Message your bot on Telegram. Tell it what kind of kedai you run, then start logging.
 
 <details>
 <summary><strong>How to get a Telegram bot token (BotFather)</strong></summary>
@@ -114,20 +140,20 @@ npx @aman_asmuei/achannel serve
 <tr>
 <td width="50%">
 
-### Orders
-Say **"[name] ordered [items]"** or **"walk-in: [items]"** and get:
-- Instant order confirmation with total
-- Sequential order numbering
-- Dine-in or bungkus tracking
+### Transactions
+Say **"[name] ordered/booked [items]"** and get:
+- Instant confirmation with total
+- Sequential numbering
+- Order type tracking (dine-in, takeaway, delivery, walk-in)
 - Running daily totals in every reply
 
 </td>
 <td width="50%">
 
 ### Customers
-Say **"[name]'s usual"** or **"who is [name]?"** and get:
+Say **"[name]'s usual / macam biasa"** or **"who is [name]?"** and get:
 - Automatic regular detection
-- Saved order preferences and modifications
+- Saved preferences and special instructions
 - Visit count and favourite items
 - Personalised service without extra effort
 
@@ -136,19 +162,19 @@ Say **"[name]'s usual"** or **"who is [name]?"** and get:
 <tr>
 <td>
 
-### Menu
-Say **"add item"**, **"sold out"**, or **"back in stock"**:
-- Add or update items on the fly
-- Mark items as sold out instantly
-- Track daily specials and how they perform
-- Prices always up to date in every order
+### Inventory
+Say **"sold out / habis [item]"** or **"add item/service"**:
+- Add or update items and services on the fly
+- Mark as sold out instantly
+- Stock level alerts when running low
+- Prices always current in every transaction
 
 </td>
 <td>
 
 ### Reports
-Say **"how was today"** or **"weekly report"**:
-- Daily order count and revenue
+Say **"how was today / tutup kedai"** or **"weekly report"**:
+- Daily transaction count and revenue
 - Top-selling items ranked by volume and value
 - Peak hour breakdown
 - Week-over-week comparison
@@ -157,33 +183,19 @@ Say **"how was today"** or **"weekly report"**:
 </tr>
 </table>
 
-### Commands Reference
+---
+
+## Commands Reference
 
 | Say this | What happens |
 |----------|-------------|
-| `[name] ordered [items]` | Logs a named customer order with total |
-| `walk-in: [items]` | Logs an anonymous order |
-| `[name]'s usual` | Recalls the regular's saved order for confirmation |
-| `sold out [item]` | Marks item unavailable until restocked |
-| `how was today` | Daily sales summary with top sellers and peak hours |
+| `[name] ordered/booked [items]` | Logs a named customer transaction with total |
+| `[name]'s usual / macam biasa` | Recalls the regular's saved order for confirmation |
+| `sold out / habis [item]` | Marks item or service unavailable until restocked |
+| `how was today / tutup kedai` | Daily summary with top items and peak hours |
 | `weekly report` | Full week breakdown with trends and retention |
-| `add item: [name] RM [price]` | Adds a new item to the menu |
+| `add item/service: [name] RM [price]` | Adds a new item or service to your list |
 | `who is [name]` | Shows customer profile, visit history, and favourites |
-
----
-
-## Sample Menu
-
-Aman Kedai ships with a ready-to-use sample menu at `content/menu/sample-menu.md`.
-
-It includes 13 main dishes, 12 drinks, and 6 sides and add-ons — all common Malaysian kedai makan items with standard prices. Use it as a starting point and update with your own items and prices.
-
-```
-Tell your bot:
-- "Add item: Laksa, RM 9.00, main dish"
-- "Change price: Teh Tarik to RM 4.00"
-- "Nasi Lemak sold out"
-```
 
 ---
 
@@ -191,44 +203,47 @@ Tell your bot:
 
 Aman Kedai is **not a traditional app**. There is no custom code.
 
-It's a set of **markdown files** that give an AI its personality, restaurant knowledge, and working method:
+It's a set of **markdown files** that give an AI its personality, business knowledge, and working method:
 
 ```
 kedai/
-├── identity/core.md              → Friendly, efficient, built for F&B
-├── workflows/flow.md             → Order → Confirm → Track → Report
-├── rules/rules.md                → Always confirm orders, remember regulars
-├── skills/kedai-skill.md         → Order tracking, customer memory, reporting
+├── identity/core.md              → Friendly, efficient, built for Malaysian small business
+├── workflows/flow.md             → Transaction → Confirm → Track → Report
+├── rules/rules.md                → Always confirm transactions, remember regulars
+├── skills/kedai-skill.md         → Transaction tracking, customer memory, reporting
 ├── content/
-│   ├── menu/sample-menu.md       → Starter menu with common kedai items
+│   ├── menu/sample-menu.md       → Starter items for kedai makan
 │   ├── templates/daily-report.md → Daily and weekly report format
-│   └── guides/getting-started.md → How to run your first week
+│   └── guides/
+│       ├── getting-started.md    → How to run your first week
+│       └── business-types.md     → How it adapts to each kedai type
 └── config/setup.sh               → One-command setup with backup
 ```
 
-The [aman ecosystem](https://github.com/amanasmuei) provides:
+The [aman ecosystem](https://github.com/amanasmuei) provides the engine:
 
 | Layer | Package | What it does for Aman Kedai |
 |-------|---------|----------------------------|
-| Identity | [acore](https://github.com/amanasmuei/acore) | Makes the assistant friendly, fast, and F&B-fluent |
-| Memory | [amem](https://github.com/amanasmuei/amem) | Remembers every order, customer preference, and conversation |
-| Workflows | [aflow](https://github.com/amanasmuei/aflow) | Structures the service cycle: order → confirm → track → report |
-| Guardrails | [arules](https://github.com/amanasmuei/arules) | Ensures orders are confirmed, prices are accurate, sold-outs are flagged |
-| Skills | [askill](https://github.com/amanasmuei/askill) | Order logging, customer recognition, menu management, daily reporting |
+| Identity | [acore](https://github.com/amanasmuei/acore) | Makes the assistant friendly, fast, and fluent in Malaysian business |
+| Memory | [amem](https://github.com/amanasmuei/amem) | Remembers every transaction, customer preference, and conversation |
+| Workflows | [aflow](https://github.com/amanasmuei/aflow) | Structures the service cycle: transaction → confirm → track → report |
+| Guardrails | [arules](https://github.com/amanasmuei/arules) | Ensures transactions are confirmed, prices accurate, sold-outs flagged |
+| Skills | [askill](https://github.com/amanasmuei/askill) | Transaction logging, customer recognition, inventory management, reporting |
 | Channels | [achannel](https://github.com/amanasmuei/achannel) | Delivers on Telegram and Web |
 
 ---
 
-## Built for Malaysian Food Businesses
+## Built for Malaysian Business
 
-Aman Kedai speaks the language of Malaysian F&B — bungkus, dine-in, kurang manis, extra sambal. It works for:
+Aman Kedai speaks the language of Malaysian small business — bungkus, dine-in, kurang manis, macam biasa, tutup kedai. It adapts to how you work, not the other way around.
 
-| Business type | How it helps |
-|--------------|-------------|
-| **Mamak** | Handles high-volume, fast orders with quick confirmation and running totals |
-| **Warung** | Recognises regulars and remembers their usual orders and modifications |
-| **Kedai Makan** | Tracks which dishes sell and when, so you prep the right amount |
-| **Food Stall** | Simple enough to use during a busy service with one hand on the ladle |
+| What this means | How it shows up |
+|----------------|-----------------|
+| **Natural language** | Text in Malay, English, or Manglish — it understands all three |
+| **Local context** | Knows bungkus, dine-in, drop-off, walk-in, delivery |
+| **Customer memory** | Remembers "Makcik Siti — extra sambal, kurang manis" without you repeating it |
+| **Any business** | Configure once for your kedai type — the bot adapts its vocabulary and workflows |
+| **Zero friction** | No app to learn. No form to fill. Just text what happened. |
 
 ---
 
@@ -250,12 +265,12 @@ bash config/teardown.sh backup/20260329-143022
 
 | Contribution | Difficulty | Impact |
 |-------------|-----------|--------|
-| Add more sample menu items by cuisine type | Easy | High |
+| Add sample content for new business types | Easy | Very High |
 | Improve daily report format | Easy | Medium |
-| Add allergen and dietary flag support | Easy | High |
-| Build table management workflow | Medium | High |
+| Add allergen and care note flag support | Easy | High |
+| Build appointment/booking workflow | Medium | High |
 | Add staff tracking and shift handover | Medium | High |
-| Fork for a different F&B type (cafe, bakery, catering) | Medium | Very High |
+| Fork and configure for a new kedai type | Medium | Very High |
 
 ```bash
 git checkout -b improve-kedai-content
@@ -276,6 +291,6 @@ MIT
 
 **Built with the [aman ecosystem](https://github.com/amanasmuei)**
 
-*Every order tracked. Every regular remembered.*
+*Every kedai deserves a digital partner.*
 
 </div>

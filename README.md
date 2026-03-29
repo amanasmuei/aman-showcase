@@ -30,7 +30,7 @@ No TypeScript. No JavaScript. No application code.
 | 💼 | **[Freelancer](./freelancer/)** | Business | Never let an invoice slip through the cracks | `7 workflows` `6 templates` |
 | 👥 | **[Team](./team/)** | Collaboration | Your team's memory — standups, decisions, onboarding | `7 workflows` `group bot` |
 | 💰 | **[Money](./money/)** | Personal Finance | Know where every ringgit goes — track, budget, save | `7 workflows` `budget tools` |
-| 🍛 | **[Kedai](./kedai/)** | Restaurant | Every order tracked, every regular remembered | `6 workflows` `sample menu` |
+| 🏪 | **[Kedai](./kedai/)** | Small Business | Digital partner for any kedai — makan, gunting, dobi, and more | `7 workflows` `8 business types` |
 
 > **Want a showcase for your domain?** [See ideas](CONTRIBUTING.md#showcase-ideas) or [build one yourself](CONTRIBUTING.md#creating-a-new-showcase)!
 
