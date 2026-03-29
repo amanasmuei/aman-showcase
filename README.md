@@ -4,7 +4,7 @@
 
 ### Real-world AI companions built with zero code
 
-[![Showcases](https://img.shields.io/badge/showcases-12-blueviolet)](https://github.com/amanasmuei/aman-showcase)
+[![Showcases](https://img.shields.io/badge/showcases-13-blueviolet)](https://github.com/amanasmuei/aman-showcase)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei/aman)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/amanasmuei/aman-showcase/pulls)
@@ -16,7 +16,7 @@ No TypeScript. No JavaScript. No application code.
 
 ---
 
-**12 domains. 150+ files. 0 lines of code.**
+**13 domains. 160+ files. 0 lines of code.**
 
 </div>
 
@@ -36,6 +36,7 @@ No TypeScript. No JavaScript. No application code.
 | 👁️ | **[Monitor](./monitor/)** | Automation | AI watchdog that never sleeps — alerts, digests, trends | `7 workflows` `always-on` |
 | 💊 | **[Rutin](./rutin/)** | Health & Family | Never miss your ubat — medication reminders for you and parents | `6 workflows` `family mode` |
 | 📡 | **[IoT](./iot/)** | Smart Environment | AI-powered sensor monitoring — smart home, farm, aquaculture | `7 workflows` `ESP32 + RPi` |
+| 🕌 | **[Muslim](./muslim/)** | Islamic Daily | Prayer times, Hadith 40, dhikr, du'a, qiblat — your ibadah companion | `7 workflows` `40 hadith` |
 
 > **Want a showcase for your domain?** [See ideas](CONTRIBUTING.md#showcase-ideas) or [build one yourself](CONTRIBUTING.md#creating-a-new-showcase)!
 
