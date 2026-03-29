@@ -4,40 +4,97 @@
 
 ### Real-world AI companions built with zero code
 
+[![Showcases](https://img.shields.io/badge/showcases-5-blueviolet)](https://github.com/amanasmuei/aman-showcase)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/amanasmuei/aman-showcase/pulls)
 
-**Build intelligent AI companions using just markdown files.**
+**Build intelligent AI companions using just markdown files.**<br>
 No TypeScript. No JavaScript. No application code.
 
-[Get Started](#-quick-start) · [Browse Showcases](#-showcases) · [Build Your Own](#-build-your-own) · [Contributing](#-contributing)
-
-</div>
+[Browse Showcases](#showcases) · [Quick Start](#-quick-start) · [Build Your Own](#-build-your-own) · [Contributing](CONTRIBUTING.md)
 
 ---
 
-## What is this?
+**5 domains. 82 files. 0 lines of code.**
 
-Each showcase is a **complete, working AI companion** for a specific real-world purpose. They're built entirely from markdown configuration files that plug into the [aman ecosystem](https://github.com/amanasmuei) — the ecosystem handles identity, memory, workflows, guardrails, skills, and delivery channels.
-
-Pick one. Run setup. You're live on Telegram in 5 minutes.
+</div>
 
 ## Showcases
 
-| | Name | Description | Channels | Status |
-|---|------|-------------|----------|--------|
-| 🇲🇾 | **[Bahasa](./bahasa/)** | AI language tutor for Malay/English that never forgets your progress | Telegram, Web | ✅ Ready |
-| 📖 | **[Quran](./quran/)** | Understand what you recite — Quranic Arabic vocabulary companion | Telegram, Web | ✅ Ready |
-| 💪 | **[Fitness](./fitness/)** | Personal trainer that remembers every workout and adapts to your goals | Telegram, Web | ✅ Ready |
-| 💼 | **[Freelancer](./freelancer/)** | Business companion for clients, invoices, and project management | Telegram, Web | ✅ Ready |
-| 👥 | **[Team](./team/)** | Virtual office manager — standups, decisions, projects, onboarding | Telegram Group | ✅ Ready |
+<table>
+<tr>
+<td align="center" width="20%">
 
-> **Want to see a showcase for your use case?** [Open an issue](https://github.com/amanasmuei/aman-showcase/issues) or build one yourself!
+### 🇲🇾
+### [Bahasa](./bahasa/)
+**Language Learning**
+
+AI tutor for Malay/English that never forgets your progress
+
+`10 lessons` `80 words`
+
+</td>
+<td align="center" width="20%">
+
+### 📖
+### [Quran](./quran/)
+**Spiritual Growth**
+
+Understand what you recite — Quranic Arabic vocabulary
+
+`12 lessons` `60 words` `20 roots`
+
+</td>
+<td align="center" width="20%">
+
+### 💪
+### [Fitness](./fitness/)
+**Health & Wellness**
+
+Personal trainer that tracks every workout
+
+`4-week program` `30+ exercises`
+
+</td>
+<td align="center" width="20%">
+
+### 💼
+### [Freelancer](./freelancer/)
+**Business**
+
+Never let an invoice slip through the cracks
+
+`7 workflows` `6 templates`
+
+</td>
+<td align="center" width="20%">
+
+### 👥
+### [Team](./team/)
+**Collaboration**
+
+Your team's memory — standups, decisions, onboarding
+
+`7 workflows` `group bot`
+
+</td>
+</tr>
+</table>
+
+> **Want a showcase for your domain?** [See ideas](CONTRIBUTING.md#showcase-ideas) or [build one yourself](CONTRIBUTING.md#creating-a-new-showcase)!
+
+## What Makes This Different
+
+Every AI chatbot forgets you. You explain your context, get help, close the chat — and tomorrow it starts from zero.
+
+**aman-showcase companions remember.** They know your vocabulary, your workout history, your clients, your team's decisions. They pick up exactly where you left off. Every single time.
+
+This is possible because each showcase plugs into the [aman ecosystem](https://github.com/amanasmuei) — a modular framework that gives AI companions persistent memory, identity, workflows, guardrails, and skills.
+
+**And the best part?** You don't write a single line of code. Each showcase is just a folder of markdown files.
 
 ## How It Works
-
-Every showcase follows the same pattern — **a folder of markdown files**:
 
 ```
 showcase/
@@ -49,14 +106,14 @@ showcase/
 └── config/setup.sh           → One-command setup
 ```
 
-The aman ecosystem provides the runtime:
+The aman ecosystem provides everything else:
 
 ```
 ┌─────────────────────────────────────────────────┐
-│                 Your Showcase                     │
-│         (just markdown files + content)           │
+│              Your Showcase                       │
+│       (just markdown files + content)            │
 └──────────────────────┬──────────────────────────┘
-                       │
+                       │ plugs into
         ┌──────────────┼──────────────┐
         ▼              ▼              ▼
    ┌─────────┐   ┌──────────┐   ┌─────────┐
@@ -85,96 +142,110 @@ The aman ecosystem provides the runtime:
 - A [Telegram](https://telegram.org/) account
 - An LLM API key — [Anthropic](https://console.anthropic.com/) (recommended), [OpenAI](https://platform.openai.com/), or free with [Ollama](https://ollama.com/)
 
-### Setup
+### 3 Steps
 
 ```bash
-# Clone the repo
+# 1. Clone and pick a showcase
 git clone https://github.com/amanasmuei/aman-showcase.git
-cd aman-showcase
+cd aman-showcase/bahasa    # or: quran, fitness, freelancer, team
 
-# Pick a showcase
-cd bahasa
-
-# Configure your environment
+# 2. Configure
 cp config/telegram.env.example .env
 # Edit .env → add your Telegram bot token + LLM API key
 
-# Set up the ecosystem
+# 3. Launch
 npx @aman_asmuei/achannel add telegram
 bash config/setup.sh
-
-# Launch
 npx @aman_asmuei/achannel serve
 ```
 
-> **Need a Telegram bot token?** Message [@BotFather](https://t.me/botfather) on Telegram, send `/newbot`, and follow the prompts.
+**That's it.** Message your bot on Telegram and start using it.
+
+<details>
+<summary><strong>How to get a Telegram bot token</strong></summary>
+
+1. Open Telegram and message [@BotFather](https://t.me/botfather)
+2. Send `/newbot` and follow the prompts
+3. Copy the token into your `.env` file
+4. For **Team** showcase: also send `/setprivacy` → select your bot → choose "Disable" (allows the bot to see group messages)
+
+</details>
 
 ## Build Your Own
 
-The power of aman-showcase is that **anyone can create a new use case** — no coding required.
-
-### 1. Fork & create your folder
+**Anyone can create a new showcase — no coding required.**
 
 ```bash
-git fork https://github.com/amanasmuei/aman-showcase.git
-mkdir my-companion
+# 1. Fork and create your folder
+mkdir my-showcase
+
+# 2. Write 4 markdown files
+#    identity/core.md     → personality
+#    workflows/flow.md    → what it does
+#    rules/rules.md       → guardrails
+#    skills/your-skill.md → domain knowledge
+
+# 3. Add content and config
+#    content/             → supporting material
+#    config/setup.sh      → copy from any existing showcase
+
+# 4. Test and PR
+bash config/setup.sh && npx @aman_asmuei/achannel serve
 ```
 
-### 2. Define your AI companion
+See the full guide: **[CONTRIBUTING.md](CONTRIBUTING.md#creating-a-new-showcase)**
 
-| File | What to write |
-|------|---------------|
-| `identity/core.md` | Personality, communication style, values, boundaries |
-| `workflows/flow.md` | Step-by-step processes your AI follows |
-| `rules/rules.md` | What it must always/never do |
-| `skills/*.md` | Domain knowledge, patterns, common mistakes |
-| `content/` | Any supporting material (lessons, templates, references) |
+### Showcase Ideas
 
-### 3. Add a setup script
+| Domain | Idea |
+|--------|------|
+| Mental Wellness | Mood journal + coping strategies |
+| Cooking | Recipe companion that learns your taste |
+| Parenting | Child development tracker |
+| Student | Study companion with spaced repetition |
+| Job Search | Application tracker + interview prep |
+| Garden | Plant care companion |
 
-Copy `bahasa/config/setup.sh` as a starting point — it handles backup, install, and instructions.
+## The Ecosystem
 
-### 4. Test & share
+<table>
+<tr>
+<td>
 
-```bash
-bash config/setup.sh
-npx @aman_asmuei/achannel serve
-```
+| Package | What it does |
+|---------|-------------|
+| [**acore**](https://github.com/amanasmuei/acore) | AI identity — 25+ role archetypes |
+| [**amem**](https://github.com/amanasmuei/amem) | Persistent memory — SQLite + embeddings |
+| [**aflow**](https://github.com/amanasmuei/aflow) | Multi-step workflows |
+| [**arules**](https://github.com/amanasmuei/arules) | Safety guardrails |
 
-If it works, submit a PR! We'd love to feature your showcase.
+</td>
+<td>
 
-## Ecosystem
+| Package | What it does |
+|---------|-------------|
+| [**askill**](https://github.com/amanasmuei/askill) | Domain expertise — 12 built-in |
+| [**aeval**](https://github.com/amanasmuei/aeval) | Relationship metrics |
+| [**achannel**](https://github.com/amanasmuei/achannel) | Telegram, Discord, Web |
+| [**aman-mcp**](https://github.com/amanasmuei/aman-mcp) | MCP server — IDE integration |
 
-aman-showcase is powered by the **aman ecosystem** — a modular framework for building AI companions:
-
-| Package | Purpose | |
-|---------|---------|---|
-| [acore](https://github.com/amanasmuei/acore) | AI identity & personality | 25+ role archetypes |
-| [amem](https://github.com/amanasmuei/amem) | Persistent semantic memory | SQLite + embeddings, 20 tools |
-| [aflow](https://github.com/amanasmuei/aflow) | Multi-step workflows | Triggered by context |
-| [arules](https://github.com/amanasmuei/arules) | Safety guardrails | Always/never rules |
-| [askill](https://github.com/amanasmuei/askill) | Domain expertise | 12 built-in, extensible |
-| [aeval](https://github.com/amanasmuei/aeval) | Relationship metrics | Trust tracking |
-| [achannel](https://github.com/amanasmuei/achannel) | Delivery channels | Telegram, Discord, Web |
-| [aman-mcp](https://github.com/amanasmuei/aman-mcp) | MCP server | 11 tools for IDE integration |
+</td>
+</tr>
+</table>
 
 ## Contributing
 
-We welcome contributions of all kinds:
+We welcome contributions from everyone — **no coding required** for most contributions.
 
-- **New showcases** — build a companion for a new domain
-- **Lesson content** — add intermediate/advanced lessons to Bahasa
-- **Translations** — fork Bahasa for Japanese, Arabic, Tamil, Spanish...
-- **Bug fixes** — improve existing content accuracy
-- **Documentation** — help others build their own showcases
+| Contribution | Difficulty | Impact |
+|-------------|-----------|--------|
+| Fix content errors (translations, accuracy) | Easy | Very High |
+| Add lessons or templates | Easy-Medium | High |
+| Create a new showcase | Medium | Very High |
+| Fork Bahasa for a new language | Medium | Very High |
+| Test showcases end-to-end | Easy | High |
 
-```bash
-# Fork, clone, create a branch
-git checkout -b my-showcase
-
-# Make your changes, then PR
-git push origin my-showcase
-```
+See the full guide: **[CONTRIBUTING.md](CONTRIBUTING.md)**
 
 ## License
 
@@ -187,5 +258,7 @@ MIT — use it, fork it, build with it.
 **Built with the [aman ecosystem](https://github.com/amanasmuei)**
 
 *Give your AI a soul. Not just a prompt.*
+
+[GitHub](https://github.com/amanasmuei/aman-showcase) · [Report Issue](https://github.com/amanasmuei/aman-showcase/issues) · [Contribute](CONTRIBUTING.md)
 
 </div>
