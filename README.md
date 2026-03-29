@@ -4,7 +4,7 @@
 
 ### Real-world AI companions built with zero code
 
-[![Showcases](https://img.shields.io/badge/showcases-5-blueviolet)](https://github.com/amanasmuei/aman-showcase)
+[![Showcases](https://img.shields.io/badge/showcases-6-blueviolet)](https://github.com/amanasmuei/aman-showcase)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/amanasmuei/aman-showcase/pulls)
@@ -16,71 +16,20 @@ No TypeScript. No JavaScript. No application code.
 
 ---
 
-**5 domains. 82 files. 0 lines of code.**
+**6 domains. 90+ files. 0 lines of code.**
 
 </div>
 
 ## Showcases
 
-<table>
-<tr>
-<td align="center" width="20%">
-
-### 🇲🇾
-### [Bahasa](./bahasa/)
-**Language Learning**
-
-AI tutor for Malay/English that never forgets your progress
-
-`10 lessons` `80 words`
-
-</td>
-<td align="center" width="20%">
-
-### 📖
-### [Quran](./quran/)
-**Spiritual Growth**
-
-Understand what you recite — Quranic Arabic vocabulary
-
-`12 lessons` `60 words` `20 roots`
-
-</td>
-<td align="center" width="20%">
-
-### 💪
-### [Fitness](./fitness/)
-**Health & Wellness**
-
-Personal trainer that tracks every workout
-
-`4-week program` `30+ exercises`
-
-</td>
-<td align="center" width="20%">
-
-### 💼
-### [Freelancer](./freelancer/)
-**Business**
-
-Never let an invoice slip through the cracks
-
-`7 workflows` `6 templates`
-
-</td>
-<td align="center" width="20%">
-
-### 👥
-### [Team](./team/)
-**Collaboration**
-
-Your team's memory — standups, decisions, onboarding
-
-`7 workflows` `group bot`
-
-</td>
-</tr>
-</table>
+| | Showcase | Domain | What it does | Highlights |
+|---|---------|--------|-------------|------------|
+| 🇲🇾 | **[Bahasa](./bahasa/)** | Language Learning | AI tutor for Malay/English that never forgets your progress | `10 lessons` `80 words` |
+| 📖 | **[Quran](./quran/)** | Spiritual Growth | Understand what you recite — Quranic Arabic vocabulary | `12 lessons` `60 words` `20 roots` |
+| 💪 | **[Fitness](./fitness/)** | Health & Wellness | Personal trainer that tracks every workout | `4-week program` `30+ exercises` |
+| 💼 | **[Freelancer](./freelancer/)** | Business | Never let an invoice slip through the cracks | `7 workflows` `6 templates` |
+| 👥 | **[Team](./team/)** | Collaboration | Your team's memory — standups, decisions, onboarding | `7 workflows` `group bot` |
+| 💰 | **[Money](./money/)** | Personal Finance | Know where every ringgit goes — track, budget, save | `7 workflows` `budget tools` |
 
 > **Want a showcase for your domain?** [See ideas](CONTRIBUTING.md#showcase-ideas) or [build one yourself](CONTRIBUTING.md#creating-a-new-showcase)!
 
