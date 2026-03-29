@@ -4,7 +4,7 @@
 
 ### Real-world AI companions built with zero code
 
-[![Showcases](https://img.shields.io/badge/showcases-7-blueviolet)](https://github.com/amanasmuei/aman-showcase)
+[![Showcases](https://img.shields.io/badge/showcases-8-blueviolet)](https://github.com/amanasmuei/aman-showcase)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/amanasmuei/aman-showcase/pulls)
@@ -16,7 +16,7 @@ No TypeScript. No JavaScript. No application code.
 
 ---
 
-**7 domains. 100+ files. 0 lines of code.**
+**8 domains. 110+ files. 0 lines of code.**
 
 </div>
 
@@ -31,6 +31,7 @@ No TypeScript. No JavaScript. No application code.
 | 👥 | **[Team](./team/)** | Collaboration | Your team's memory — standups, decisions, onboarding | `7 workflows` `group bot` |
 | 💰 | **[Money](./money/)** | Personal Finance | Know where every ringgit goes — track, budget, save | `7 workflows` `budget tools` |
 | 🏪 | **[Kedai](./kedai/)** | Small Business | Digital partner for any kedai — makan, gunting, dobi, and more | `7 workflows` `8 business types` |
+| 📰 | **[Feed](./feed/)** | Personalized News | Your AI that knows what you care about — signal, not noise | `6 workflows` `learns interests` |
 
 > **Want a showcase for your domain?** [See ideas](CONTRIBUTING.md#showcase-ideas) or [build one yourself](CONTRIBUTING.md#creating-a-new-showcase)!
 
