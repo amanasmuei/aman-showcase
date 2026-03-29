@@ -31,6 +31,7 @@ Pick one. Run setup. You're live on Telegram in 5 minutes.
 | 📖 | **[Quran](./quran/)** | Understand what you recite — Quranic Arabic vocabulary companion | Telegram, Web | ✅ Ready |
 | 💪 | **[Fitness](./fitness/)** | Personal trainer that remembers every workout and adapts to your goals | Telegram, Web | ✅ Ready |
 | 💼 | **[Freelancer](./freelancer/)** | Business companion for clients, invoices, and project management | Telegram, Web | ✅ Ready |
+| 👥 | **[Team](./team/)** | Virtual office manager — standups, decisions, projects, onboarding | Telegram Group | ✅ Ready |
 
 > **Want to see a showcase for your use case?** [Open an issue](https://github.com/amanasmuei/aman-showcase/issues) or build one yourself!
 
