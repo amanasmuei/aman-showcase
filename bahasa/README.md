@@ -1,24 +1,50 @@
+<div align="center">
+
 # Aman Bahasa
 
-**A free AI language tutor that never forgets your progress.**
+### A free AI language tutor that never forgets your progress
 
-Learn Malay or English through conversation with an AI tutor that remembers your vocabulary, adapts to your level, and follows structured lesson plans — all on Telegram.
+[![aman ecosystem](https://img.shields.io/badge/powered%20by-aman%20ecosystem-blue)](https://github.com/amanasmuei)
+[![Zero Code](https://img.shields.io/badge/application%20code-zero-brightgreen)](#how-it-works)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Built with zero application code. Just markdown configuration + the [aman ecosystem](https://github.com/amanasmuei).
+Learn **Malay** or **English** through conversation with an AI tutor that remembers your vocabulary, adapts to your level, and follows structured lesson plans — all on Telegram.
 
-## Why?
+[Quick Start](#-quick-start) · [Features](#-what-can-it-do) · [Lessons](#-lessons) · [Fork for Your Language](#-fork-it-for-your-language)
 
-Every AI chatbot forgets you. You tell ChatGPT your level, learn 10 words, close the chat — and tomorrow it asks your level again.
+</div>
 
-Aman Bahasa remembers. It knows you struggled with "masak" vs "makan" last week. It knows you prefer conversation over drills. It picks up exactly where you left off.
+---
+
+## The Problem
+
+Every AI chatbot forgets you.
+
+You tell ChatGPT your level. You learn 10 words. You close the chat.
+
+Tomorrow? It asks your level again. Your progress? Gone.
+
+## The Solution
+
+**Aman Bahasa remembers.**
+
+It knows you struggled with *"masak"* vs *"makan"* last week. It knows you prefer conversation over drills. It knows you completed Lesson 7 and that directions are your weak spot.
+
+It picks up exactly where you left off. Every single time.
+
+> Built with zero application code — just markdown configuration + the [aman ecosystem](https://github.com/amanasmuei).
+
+---
 
 ## Quick Start
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v18+)
-- A Telegram account
-- An LLM API key (Anthropic, OpenAI, or free with [Ollama](https://ollama.com/))
+| Requirement | Notes |
+|------------|-------|
+| [Node.js](https://nodejs.org/) v18+ | Runtime |
+| [Telegram](https://telegram.org/) account | Where your tutor lives |
+| LLM API key | [Anthropic](https://console.anthropic.com/) (recommended), [OpenAI](https://platform.openai.com/), or free with [Ollama](https://ollama.com/) |
 
 ### Setup (5 minutes)
 
@@ -29,96 +55,226 @@ cd aman-showcase/bahasa
 
 # 2. Configure
 cp config/telegram.env.example .env
-# Edit .env with your Telegram bot token + API key
+# Edit .env → add your Telegram bot token + LLM API key
 
-# 3. Install ecosystem (if not already installed)
+# 3. Install ecosystem
 npx @aman_asmuei/achannel add telegram
 
 # 4. Setup Aman Bahasa
 bash config/setup.sh
 
-# 5. Start
+# 5. Launch
 npx @aman_asmuei/achannel serve
 ```
 
-Now message your bot on Telegram. Say "hi" and start learning!
+**That's it.** Message your bot on Telegram. Say *"hi"* and start learning.
 
-### Get a Telegram Bot Token
+<details>
+<summary><strong>How to get a Telegram bot token</strong></summary>
 
 1. Open Telegram and message [@BotFather](https://t.me/botfather)
-2. Send `/newbot` and follow the prompts
-3. Copy the token into your `.env` file
+2. Send `/newbot`
+3. Choose a name (e.g., "Aman Bahasa") and username (e.g., `aman_bahasa_bot`)
+4. Copy the token into your `.env` file
+
+</details>
+
+---
 
 ## What Can It Do?
 
+<table>
+<tr>
+<td width="50%">
+
+### Learn with Structure
+Say **"lesson"** and get a guided lesson:
+1. Review previous words
+2. Learn 5-8 new words with examples
+3. Practice exercises
+4. Conversation scenario
+5. Progress saved to memory
+
+</td>
+<td width="50%">
+
+### Learn by Talking
+Say **"let's talk"** and have a real conversation:
+- Realistic scenarios (at a mamak, giving directions)
+- Gentle corrections without breaking flow
+- New words introduced naturally
+- Cultural context woven in
+
+</td>
+</tr>
+<tr>
+<td>
+
+### Review & Remember
+Say **"review"** and the tutor:
+- Finds words you learned 3+ days ago
+- Focuses on your weak spots first
+- Uses spaced repetition principles
+- Updates your progress
+
+</td>
+<td>
+
+### Track Progress
+Say **"quiz me"** or **"progress"**:
+- 5-question quizzes on recent material
+- Score tracking across sessions
+- Level-up suggestions when ready
+- Full stats: words learned, streak, level
+
+</td>
+</tr>
+</table>
+
+### Commands Reference
+
 | Say this | What happens |
 |----------|-------------|
-| "hi" or `/start` | Start learning — pick your language and level |
-| "lesson" | Begin a structured lesson with new vocabulary |
-| "let's talk" | Free conversation practice in Malay |
-| "review" | Review words you've learned (focuses on weak areas) |
-| "quiz me" | Take a 5-question quiz on recent material |
-| "progress" | See your stats — words learned, level, streak |
+| `hi` or `/start` | Start learning — pick your language and level |
+| `lesson` or `next lesson` | Begin a structured lesson with new vocabulary |
+| `let's talk` or `conversation` | Free conversation practice in Malay |
+| `review` | Review words you've learned (focuses on weak areas) |
+| `quiz me` | Take a 5-question quiz on recent material |
+| `progress` or `how am I doing?` | See your stats — words learned, level, streak |
+| `change level` | Adjust difficulty up or down |
+| `switch to English` / `tukar ke Melayu` | Switch learning direction |
+
+---
+
+## Lessons
+
+### Beginner Track
+
+| # | Topic | What You'll Learn | Key Words |
+|---|-------|-------------------|-----------|
+| 1 | **Greetings** | Hello, goodbye, thank you | selamat pagi, apa khabar, terima kasih |
+| 2 | **Introductions** | Name, origin, age | nama saya, saya dari, umur |
+| 3 | **Numbers** | Counting 1-20, patterns | satu, dua, tiga... dua puluh |
+| 4 | **Family** | Family members, respect terms | ibu, ayah, abang, kakak |
+| 5 | **Food & Drinks** | Ordering at a mamak | nasi, ayam, makan, teh tarik |
+| 6 | **Colors & Objects** | Describing things (adj after noun!) | merah, biru, buku merah |
+| 7 | **Daily Routine** | Morning to night | bangun, mandi, tidur, kerja |
+| 8 | **At the Market** | Shopping, bargaining | berapa, mahal, boleh kurang? |
+| 9 | **Directions** | Finding your way (di vs ke) | kiri, kanan, di mana |
+| 10 | **Transport** | Getting around | kereta, bas, naik, turun |
+
+> **~80 vocabulary words** across 10 lessons. More coming soon!
+
+### What Makes These Lessons Special
+
+- **Cultural context in every lesson** — "Dah makan?" isn't about food, it's a greeting
+- **Common mistakes highlighted** — masak vs makan, adjective placement
+- **Conversation scenarios** — practice in realistic Malaysian settings
+- **Progressive difficulty** — each lesson builds on the previous
+
+---
 
 ## How It Works
 
-Aman Bahasa is **not** a traditional app. There is no custom code. It's a set of markdown configuration files that plug into the [aman ecosystem](https://github.com/amanasmuei):
+Aman Bahasa is **not a traditional app**. There is no custom code.
 
-| File | Ecosystem Layer | Purpose |
-|------|----------------|---------|
-| `identity/core.md` | [acore](https://github.com/amanasmuei/acore) | Tutor personality — warm, patient, bilingual |
-| `workflows/flow.md` | [aflow](https://github.com/amanasmuei/aflow) | Lesson structure — review, teach, practice, quiz |
-| `rules/rules.md` | [arules](https://github.com/amanasmuei/arules) | Teaching rules — gentle corrections, no overload |
-| `skills/bahasa-skill.md` | [askill](https://github.com/amanasmuei/askill) | Malay language knowledge and teaching patterns |
-| `content/lessons/` | Lesson content | 10 beginner lessons with vocabulary and exercises |
+It's a set of **markdown files** that give an AI its personality, knowledge, and teaching method:
 
-Memory is handled by [amem](https://github.com/amanasmuei/amem) — your vocabulary, progress, and weak areas persist across sessions.
+```
+bahasa/
+├── identity/core.md          → Warm, patient bilingual tutor
+├── workflows/flow.md         → Lesson → Review → Quiz → Conversation → Progress
+├── rules/rules.md            → Gentle corrections, max 8 words per lesson
+├── skills/bahasa-skill.md    → Malay patterns, cultural context, Lv.1-5
+├── content/lessons/          → 10 structured beginner lessons
+├── content/vocabulary/       → ~80 core words by topic
+└── config/setup.sh           → One-command setup with backup
+```
 
-## Content
+The [aman ecosystem](https://github.com/amanasmuei) provides:
 
-### Beginner Track (10 lessons)
+| Layer | Package | What it does for Bahasa |
+|-------|---------|------------------------|
+| Identity | [acore](https://github.com/amanasmuei/acore) | Makes the tutor warm, patient, and bilingual |
+| Memory | [amem](https://github.com/amanasmuei/amem) | Remembers vocabulary, weak areas, preferences |
+| Workflows | [aflow](https://github.com/amanasmuei/aflow) | Structures lessons: review → teach → practice → save |
+| Guardrails | [arules](https://github.com/amanasmuei/arules) | Ensures gentle corrections, no overload |
+| Skills | [askill](https://github.com/amanasmuei/askill) | Malay language patterns and teaching strategies |
+| Channels | [achannel](https://github.com/amanasmuei/achannel) | Delivers on Telegram and Web |
 
-1. Greetings — selamat pagi, apa khabar, terima kasih
-2. Introductions — nama saya, saya dari
-3. Numbers — satu to dua puluh
-4. Family — ibu, ayah, adik, abang, kakak
-5. Food & Drinks — nasi, ayam, makan, minum
-6. Colors & Objects — merah, biru, buku merah (adjective after noun!)
-7. Daily Routine — bangun, mandi, tidur, kerja
-8. At the Market — berapa, mahal, murah, boleh kurang?
-9. Directions — kiri, kanan, di mana, di vs ke
-10. Transport — kereta, bas, naik, turun
-
-More lessons coming soon. Contributions welcome!
+---
 
 ## Fork It for Your Language
 
-The best part: you can fork this repo and teach **any language**. Just:
+The best part: **you can teach any language with this template.**
 
-1. Fork this repo
-2. Edit `identity/core.md` — change the tutor personality
-3. Replace lesson content in `content/lessons/`
-4. Update `skills/bahasa-skill.md` with your language's patterns
-5. Run `setup.sh` and you have a new language tutor
+```bash
+# 1. Fork this repo
+# 2. Copy the bahasa folder
+cp -r bahasa japanese
 
-Japanese, Arabic, Tamil, Spanish, Korean — the ecosystem handles everything else.
+# 3. Edit the files:
+#    - identity/core.md     → Japanese tutor personality
+#    - skills/*.md          → Japanese language patterns
+#    - content/lessons/     → Japanese lesson content
+#    - rules/rules.md       → Japanese teaching rules
+
+# 4. Run setup and you have a Japanese tutor
+cd japanese && bash config/setup.sh
+```
+
+**Language ideas:** Japanese, Arabic, Tamil, Spanish, Korean, Mandarin, Hindi, French, Swahili...
+
+The ecosystem handles memory, delivery, and workflows. You just bring the content.
+
+---
 
 ## Restore Your Config
 
-Aman Bahasa backs up your existing ecosystem files during setup. To restore:
+Aman Bahasa automatically backs up your existing ecosystem files during setup.
 
 ```bash
-bash config/teardown.sh backup/<timestamp>
+# List available backups
+bash config/teardown.sh
+
+# Restore a specific backup
+bash config/teardown.sh backup/20260329-143022
 ```
+
+---
 
 ## Contributing
 
-- Add more lessons (intermediate, advanced)
-- Improve vocabulary lists
-- Add cultural notes
-- Fix language accuracy
-- Fork for a new language and share!
+We'd love your help making Aman Bahasa better:
+
+| Contribution | Difficulty | Impact |
+|-------------|-----------|--------|
+| Fix Malay translations | Easy | High |
+| Add cultural notes | Easy | Medium |
+| Write intermediate lessons (11-20) | Medium | High |
+| Write advanced lessons (21+) | Medium | High |
+| Fork for a new language | Medium | Very High |
+| Add voice pronunciation support | Hard | High |
+
+```bash
+git checkout -b improve-lessons
+# Make your changes
+git push origin improve-lessons
+# Open a PR!
+```
+
+---
 
 ## License
 
 MIT
+
+---
+
+<div align="center">
+
+**Built with the [aman ecosystem](https://github.com/amanasmuei)**
+
+*An AI tutor that grows with you — not one that forgets you.*
+
+</div>
