@@ -29,7 +29,7 @@ Pick one. Run setup. You're live on Telegram in 5 minutes.
 |---|------|-------------|----------|--------|
 | 🇲🇾 | **[Bahasa](./bahasa/)** | AI language tutor for Malay/English that never forgets your progress | Telegram, Web | ✅ Ready |
 | 📖 | **[Quran](./quran/)** | Understand what you recite — Quranic Arabic vocabulary companion | Telegram, Web | ✅ Ready |
-| 💪 | *Fitness* | Personal trainer that adapts to your routine | — | 🔜 Coming soon |
+| 💪 | **[Fitness](./fitness/)** | Personal trainer that remembers every workout and adapts to your goals | Telegram, Web | ✅ Ready |
 | 💼 | *Freelancer* | Business assistant for client management | — | 🔜 Coming soon |
 
 > **Want to see a showcase for your use case?** [Open an issue](https://github.com/amanasmuei/aman-showcase/issues) or build one yourself!
