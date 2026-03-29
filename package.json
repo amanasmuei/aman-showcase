@@ -1,0 +1,12 @@
+{
+  "name": "@aman_asmuei/aman-showcase",
+  "version": "0.1.0",
+  "description": "Real-world use cases built with the aman AI companion ecosystem — zero application code, just configuration and content",
+  "keywords": ["aman", "ai-companion", "showcase", "language-learning", "telegram"],
+  "author": "amanasmuei",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amanasmuei/aman-showcase.git"
+  }
+}
