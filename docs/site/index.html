@@ -66,12 +66,23 @@
       Persistent identity. Semantic memory. Real-world showcases.
       Runs on Claude, OpenAI, or Ollama — fully local.
     </p>
-    <div class="flex items-center gap-2 bg-gray-900 border border-gray-700 rounded-xl px-5 py-3 mb-4 max-w-sm w-full">
-      <code class="text-brand-500 text-sm flex-1 text-left">npx @aman_asmuei/aman</code>
-      <button onclick="navigator.clipboard.writeText('npx @aman_asmuei/aman')"
-        class="copy-btn text-xs text-gray-500 hover:text-white transition px-2 py-1 rounded border border-gray-700 hover:border-gray-500">
-        copy
-      </button>
+    <div class="w-full max-w-sm space-y-2 mb-4">
+      <p class="text-xs text-gray-500 text-left mb-1">Try without installing:</p>
+      <div class="flex items-center gap-2 bg-gray-900 border border-gray-700 rounded-xl px-5 py-3 w-full">
+        <code class="text-brand-500 text-sm flex-1 text-left">npx @aman_asmuei/aman</code>
+        <button onclick="navigator.clipboard.writeText('npx @aman_asmuei/aman')"
+          class="copy-btn text-xs text-gray-500 hover:text-white transition px-2 py-1 rounded border border-gray-700 hover:border-gray-500">
+          copy
+        </button>
+      </div>
+      <p class="text-xs text-gray-500 text-left mb-1 pt-1">Or install globally for the <code class="text-gray-400">aman</code> command:</p>
+      <div class="flex items-center gap-2 bg-gray-900 border border-gray-700 rounded-xl px-5 py-3 w-full">
+        <code class="text-brand-500 text-sm flex-1 text-left">npm i -g @aman_asmuei/aman</code>
+        <button onclick="navigator.clipboard.writeText('npm i -g @aman_asmuei/aman')"
+          class="copy-btn text-xs text-gray-500 hover:text-white transition px-2 py-1 rounded border border-gray-700 hover:border-gray-500">
+          copy
+        </button>
+      </div>
     </div>
     <p class="text-gray-600 text-sm">Open source · MIT · Node.js 18+</p>
     <div class="mt-8 flex gap-4">
@@ -87,12 +98,12 @@
       <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800">
         <div class="text-3xl mb-4">1️⃣</div>
         <h3 class="font-bold text-lg mb-2">Setup in 30 seconds</h3>
-        <p class="text-gray-400 text-sm">Run <code class="text-brand-500">npx @aman_asmuei/aman</code> to create your AI identity across 25 personality archetypes.</p>
+        <p class="text-gray-400 text-sm">Run <code class="text-brand-500">npx @aman_asmuei/aman</code> to try it instantly, or <code class="text-brand-500">npm i -g @aman_asmuei/aman</code> to get the <code class="text-gray-300">aman</code> shorthand.</p>
       </div>
       <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800">
         <div class="text-3xl mb-4">2️⃣</div>
         <h3 class="font-bold text-lg mb-2">Pick a showcase</h3>
-        <p class="text-gray-400 text-sm">Run <code class="text-brand-500">aman showcase rutin</code> to install any of 13 real-world AI companions — medication reminders, business trackers, and more.</p>
+        <p class="text-gray-400 text-sm">Run <code class="text-brand-500">npx @aman_asmuei/aman showcase rutin</code> to install any of 13 real-world AI companions — medication reminders, business trackers, and more.</p>
       </div>
       <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800">
         <div class="text-3xl mb-4">3️⃣</div>
@@ -184,7 +195,7 @@
           </div>
           <p class="text-gray-400 text-sm flex-1">${s.desc}</p>
           <div class="flex items-center gap-2 bg-gray-950 rounded-lg px-3 py-2 text-xs">
-            <code class="text-brand-500 flex-1">aman showcase ${s.name}</code>
+            <code class="text-brand-500 flex-1">npx @aman_asmuei/aman showcase ${s.name}</code>
             <button onclick="navigator.clipboard.writeText('npx @aman_asmuei/aman showcase ${s.name}')"
               class="copy-btn text-gray-600 hover:text-white transition">copy</button>
           </div>
