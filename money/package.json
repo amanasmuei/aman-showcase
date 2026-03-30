@@ -1,0 +1,9 @@
+{
+  "name": "aman-money",
+  "version": "1.0.0",
+  "description": "aman money showcase",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "npx @aman_asmuei/achannel serve"
+  }
+}

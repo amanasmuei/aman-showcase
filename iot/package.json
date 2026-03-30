@@ -1,0 +1,9 @@
+{
+  "name": "aman-iot",
+  "version": "1.0.0",
+  "description": "aman iot showcase",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "npx @aman_asmuei/achannel serve"
+  }
+}

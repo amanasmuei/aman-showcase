@@ -1,0 +1,9 @@
+{
+  "name": "aman-rutin",
+  "version": "1.0.0",
+  "description": "aman rutin showcase",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "npx @aman_asmuei/achannel serve"
+  }
+}

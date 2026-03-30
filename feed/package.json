@@ -1,0 +1,9 @@
+{
+  "name": "aman-feed",
+  "version": "1.0.0",
+  "description": "aman feed showcase",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "npx @aman_asmuei/achannel serve"
+  }
+}

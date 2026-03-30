@@ -1,0 +1,9 @@
+{
+  "name": "aman-monitor",
+  "version": "1.0.0",
+  "description": "aman monitor showcase",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "npx @aman_asmuei/achannel serve"
+  }
+}
