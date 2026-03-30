@@ -26,7 +26,6 @@ npx @aman_asmuei/aman showcase team
 
 Or deploy to the cloud (no local setup needed):
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/amanasmuei/aman-showcase/tree/main/team)
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/amanasmuei/aman-showcase)
 ## The Problem
 
@@ -111,7 +110,7 @@ Bot: Welcome, Layla! Here's what you need to know about this team:
        • Auth: Using Supabase (cheaper than Firebase, PostgreSQL-native)
        • Frontend: React + Tailwind (decision #8, March 3)
        • Payments: Stripe, not PayPal (decision #14, March 20)
-       • Deploy: Railway for now, revisiting at scale
+       • Deploy: cloud or self-hosted
 
      👥 Team:
        • Ali — backend
