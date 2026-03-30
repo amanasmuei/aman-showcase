@@ -1,12 +1,53 @@
 {
   "name": "@aman_asmuei/aman-showcase",
   "version": "0.1.0",
-  "description": "Real-world use cases built with the aman AI companion ecosystem — zero application code, just configuration and content",
-  "keywords": ["aman", "ai-companion", "showcase", "language-learning", "telegram"],
-  "author": "amanasmuei",
+  "description": "Real-world AI companion showcases — zero-code, configuration-only",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "aman-showcase": "./bin/aman-showcase.js"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "bahasa",
+    "feed",
+    "fitness",
+    "freelancer",
+    "iot",
+    "kedai",
+    "money",
+    "monitor",
+    "muslim",
+    "quran",
+    "rutin",
+    "support",
+    "team"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["aman", "ai-companion", "showcase", "telegram", "discord"],
+  "author": "Aman Asmuei",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/amanasmuei/aman-showcase.git"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "@clack/prompts": "^0.9.1",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
   }
 }
