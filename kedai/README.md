@@ -16,6 +16,18 @@ A Telegram assistant that tracks transactions, remembers your regulars, manages 
 
 ---
 
+
+## Quick Deploy
+
+Run locally in one command:
+```bash
+npx @aman_asmuei/aman showcase kedai
+```
+
+Or deploy to the cloud (no local setup needed):
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/amanasmuei/aman-showcase/tree/main/kedai)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/amanasmuei/aman-showcase)
 ## The Problem
 
 Small business owners track everything in their head. Orders on paper. Customer preferences forgotten. No idea what sells best.

@@ -16,6 +16,18 @@ A personal fitness trainer on Telegram that remembers every workout you've logge
 
 ---
 
+
+## Quick Deploy
+
+Run locally in one command:
+```bash
+npx @aman_asmuei/aman showcase fitness
+```
+
+Or deploy to the cloud (no local setup needed):
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/amanasmuei/aman-showcase/tree/main/fitness)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/amanasmuei/aman-showcase)
 ## The Problem
 
 Every fitness app resets your context.

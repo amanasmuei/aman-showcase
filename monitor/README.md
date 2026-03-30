@@ -16,6 +16,18 @@ An always-on AI monitoring agent that watches prices, websites, exchange rates, 
 
 ---
 
+
+## Quick Deploy
+
+Run locally in one command:
+```bash
+npx @aman_asmuei/aman showcase monitor
+```
+
+Or deploy to the cloud (no local setup needed):
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/amanasmuei/aman-showcase/tree/main/monitor)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/amanasmuei/aman-showcase)
 ## The Problem
 
 You can't watch everything 24/7.

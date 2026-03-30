@@ -16,6 +16,18 @@ An AI office manager in your Telegram group that remembers every decision, track
 
 ---
 
+
+## Quick Deploy
+
+Run locally in one command:
+```bash
+npx @aman_asmuei/aman showcase team
+```
+
+Or deploy to the cloud (no local setup needed):
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/amanasmuei/aman-showcase/tree/main/team)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/amanasmuei/aman-showcase)
 ## The Problem
 
 Small teams lose everything in chat.

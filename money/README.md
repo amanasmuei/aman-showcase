@@ -16,6 +16,18 @@ A personal finance tracker on Telegram that logs every ringgit you spend, keeps 
 
 ---
 
+
+## Quick Deploy
+
+Run locally in one command:
+```bash
+npx @aman_asmuei/aman showcase money
+```
+
+Or deploy to the cloud (no local setup needed):
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/amanasmuei/aman-showcase/tree/main/money)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/amanasmuei/aman-showcase)
 ## The Problem
 
 "Where did my money go?"

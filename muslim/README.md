@@ -7,6 +7,18 @@ An AI companion that helps Muslims maintain consistent daily ibadah — prayer t
 
 ---
 
+
+## Quick Deploy
+
+Run locally in one command:
+```bash
+npx @aman_asmuei/aman showcase muslim
+```
+
+Or deploy to the cloud (no local setup needed):
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/amanasmuei/aman-showcase/tree/main/muslim)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/amanasmuei/aman-showcase)
 ## The Problem
 
 Busy life pulls you away from ibadah. You miss Fajr. You forget the morning adhkar. You can't remember which hadith you last studied. You want to be consistent — but consistency is hard when you're navigating it alone.
