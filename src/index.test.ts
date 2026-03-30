@@ -1,6 +1,5 @@
 import { describe, it, expect } from "vitest";
 import fs from "node:fs";
-import os from "node:os";
 import { getManifest, getShowcaseDir, installShowcase, SHOWCASES } from "./index.js";
 
 describe("getManifest", () => {
