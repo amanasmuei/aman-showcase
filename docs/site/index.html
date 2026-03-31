@@ -4,203 +4,432 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>aman — Your AI Companion</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: { 50: '#f0fdf4', 500: '#22c55e', 600: '#16a34a', 900: '#14532d' }
-          }
-        }
-      }
-    }
-  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    .copy-btn:active { transform: scale(0.97); }
-    pre { scrollbar-width: thin; }
+    :root{--bg:#07090a;--surface:#0f1419;--surface2:#161d24;--border:#1e2d3a;--green:#22c55e;--gdim:rgba(34,197,94,.08);--text:#c8dcc8;--muted:#4d6b55;--white:#eef5ee;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'Instrument Sans',sans-serif;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(34,197,94,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(34,197,94,.025) 1px,transparent 1px);background-size:56px 56px;pointer-events:none;z-index:0;}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 56px;display:flex;align-items:center;justify-content:space-between;transition:background .3s,border-color .3s;border-bottom:1px solid transparent;}
+    nav.scrolled{background:rgba(7,9,10,.92);backdrop-filter:blur(16px);border-color:var(--border);}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .nav-logo-text{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;color:var(--white);letter-spacing:-.02em;}
+    .nav-links{display:flex;align-items:center;gap:28px;}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:14px;transition:color .2s;}
+    .nav-links a:hover{color:var(--white);}
+    .nav-cta{background:var(--green)!important;color:#000!important;padding:7px 16px!important;border-radius:7px;font-weight:500;font-size:13px!important;transition:opacity .2s!important;}
+    .nav-cta:hover{opacity:.85!important;}
+
+    .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;padding:120px 56px 80px;position:relative;z-index:1;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--gdim);border:1px solid rgba(34,197,94,.25);border-radius:100px;padding:5px 14px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);margin-bottom:28px;}
+    .bdot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+    .hero h1{font-family:'Syne',sans-serif;font-size:clamp(40px,4.5vw,64px);font-weight:800;line-height:1.05;letter-spacing:-.035em;color:var(--white);margin-bottom:22px;}
+    .hero h1 em{color:var(--green);font-style:normal;}
+    .hero-desc{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:36px;max-width:420px;}
+    .hero-cmds{display:flex;flex-direction:column;gap:10px;margin-bottom:36px;}
+    .cmd-label{font-size:10px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.07em;margin-bottom:5px;text-transform:uppercase;}
+    .cmd-row{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:11px 15px;transition:border-color .2s;}
+    .cmd-row:hover{border-color:rgba(34,197,94,.35);}
+    .cmd-row code{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--green);flex:1;}
+    .cpbtn{background:none;border:1px solid var(--border);border-radius:5px;padding:3px 9px;color:var(--muted);font-size:11px;cursor:pointer;transition:all .2s;font-family:'JetBrains Mono',monospace;white-space:nowrap;}
+    .cpbtn:hover,.cpbtn.ok{border-color:var(--green);color:var(--green);}
+    .hero-sub{display:flex;gap:20px;font-size:12px;color:var(--muted);}
+
+    .terminal-wrap{position:relative;}
+    .terminal-wrap::before{content:'';position:absolute;inset:-60px;background:radial-gradient(ellipse at 50% 50%,rgba(34,197,94,.07) 0%,transparent 65%);pointer-events:none;}
+    .terminal{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.03);position:relative;z-index:1;}
+    .tbar{background:var(--surface2);padding:13px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border);}
+    .tdots{display:flex;gap:7px;}
+    .tdot{width:12px;height:12px;border-radius:50%;}
+    .tdot:nth-child(1){background:#ff5f56;}.tdot:nth-child(2){background:#ffbd2e;}.tdot:nth-child(3){background:#27c93f;}
+    .ttitle{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);flex:1;text-align:center;}
+    .tbody{padding:20px 22px;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.85;min-height:340px;overflow:hidden;}
+    .tline{display:block;}
+    .tprompt{color:var(--muted);}
+    .tcursor{display:inline-block;width:7px;height:13px;background:var(--green);vertical-align:middle;animation:blink 1s infinite;}
+    @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+    .cg{color:var(--green);}.cw{color:var(--white);}.cm{color:var(--muted);}.cd{color:#253530;}
+
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);background:var(--border);gap:1px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1;}
+    .stat{background:var(--bg);padding:44px 40px;text-align:center;}
+    .statn{font-family:'Syne',sans-serif;font-size:52px;font-weight:800;color:var(--green);letter-spacing:-.04em;display:block;line-height:1;}
+    .statl{font-size:13px;color:var(--muted);margin-top:8px;}
+
+    section{position:relative;z-index:1;}
+    .stag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);text-transform:uppercase;letter-spacing:.12em;margin-bottom:14px;}
+    .stitle{font-family:'Syne',sans-serif;font-size:clamp(30px,3.5vw,48px);font-weight:800;color:var(--white);letter-spacing:-.03em;margin-bottom:14px;line-height:1.1;}
+    .sdesc{font-size:15px;color:var(--muted);line-height:1.75;max-width:500px;}
+
+    .how{padding:120px 56px;}
+    .how-head{margin-bottom:64px;}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:16px;overflow:hidden;}
+    .step{background:var(--surface);padding:44px 36px;transition:background .25s;}
+    .step:hover{background:var(--surface2);}
+    .stepn{font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(34,197,94,.4);letter-spacing:.1em;margin-bottom:20px;}
+    .stepicon{font-size:28px;margin-bottom:16px;display:block;}
+    .step h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--white);margin-bottom:10px;}
+    .step p{font-size:13.5px;color:var(--muted);line-height:1.7;}
+    .step p code{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--green);background:var(--gdim);padding:2px 5px;border-radius:3px;}
+
+    .scsec{padding:120px 56px;background:linear-gradient(to bottom,transparent,rgba(34,197,94,.015),transparent);}
+    .fbar{display:flex;gap:8px;flex-wrap:wrap;margin:36px 0 52px;}
+    .ftab{padding:7px 18px;border-radius:100px;border:1px solid var(--border);background:none;color:var(--muted);font-size:13px;cursor:pointer;transition:all .2s;font-family:'Instrument Sans',sans-serif;}
+    .ftab:hover{border-color:var(--green);color:var(--white);}
+    .ftab.on{background:var(--green);border-color:var(--green);color:#000;font-weight:500;}
+    .scgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:14px;}
+    .sccard{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:14px;transition:all .25s;}
+    .sccard:hover{border-color:rgba(34,197,94,.3);background:var(--surface2);transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.45);}
+    .sccard.hide{display:none;}
+    .ctop{display:flex;align-items:flex-start;justify-content:space-between;}
+    .cemoji{font-size:26px;}
+    .clang{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);background:var(--surface2);border:1px solid var(--border);padding:3px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.06em;}
+    .ctitle{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--white);}
+    .cdesc{font-size:13px;color:var(--muted);line-height:1.65;flex:1;}
+    .ccmd{display:flex;align-items:center;gap:8px;background:var(--bg);border-radius:8px;padding:9px 12px;border:1px solid var(--border);}
+    .ccmd code{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--green);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    .ccopy{background:none;border:none;color:var(--muted);cursor:pointer;padding:2px;border-radius:3px;transition:color .2s;flex-shrink:0;display:flex;}
+    .ccopy:hover{color:var(--green);}
+
+    .arch{padding:120px 56px;}
+    .archgrid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-top:72px;}
+    .layers{display:flex;flex-direction:column;gap:3px;}
+    .layer{display:flex;align-items:center;gap:18px;padding:17px 22px;background:var(--surface);border:1px solid var(--border);border-radius:10px;cursor:pointer;transition:all .2s;}
+    .layer:hover,.layer.on{background:var(--surface2);border-color:rgba(34,197,94,.3);}
+    .layer.on .lname{color:var(--green);}
+    .lnum{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);width:18px;flex-shrink:0;}
+    .lname{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--white);font-weight:500;width:56px;flex-shrink:0;}
+    .llabel{font-size:13px;color:var(--muted);}
+    .larr{margin-left:auto;color:var(--muted);font-size:13px;transition:transform .2s,color .2s;}
+    .layer.on .larr{transform:translateX(4px);color:var(--green);}
+    .archpanel{position:sticky;top:100px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:36px;min-height:300px;}
+    .ptag{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green);letter-spacing:.1em;margin-bottom:14px;text-transform:uppercase;}
+    .ptitle{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;color:var(--white);margin-bottom:14px;letter-spacing:-.02em;}
+    .pdesc{font-size:14px;color:var(--muted);line-height:1.75;}
+    .pfeats{margin-top:22px;display:flex;flex-direction:column;gap:9px;}
+    .pfeat{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);}
+    .pfeat::before{content:'';width:5px;height:5px;background:var(--green);border-radius:50%;flex-shrink:0;}
+
+    footer{border-top:1px solid var(--border);padding:56px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;}
+    .footleft p{font-size:13px;color:var(--muted);margin-top:6px;}
+    .footlinks{display:flex;gap:28px;}
+    .footlinks a{color:var(--muted);text-decoration:none;font-size:14px;transition:color .2s;}
+    .footlinks a:hover{color:var(--white);}
+
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s,transform .55s;}
+    .reveal.in{opacity:1;transform:none;}
+
+    @media(max-width:960px){
+      .hero{grid-template-columns:1fr;padding:100px 24px 60px;}.terminal-wrap{display:none;}
+      .stats{grid-template-columns:1fr;}.how,.scsec,.arch{padding:80px 24px;}
+      .steps{grid-template-columns:1fr;}.archgrid{grid-template-columns:1fr;}
+      nav{padding:16px 24px;}footer{padding:40px 24px;flex-direction:column;gap:20px;text-align:center;}
+    }
   </style>
 </head>
-<body class="bg-gray-950 text-gray-100 font-sans antialiased">
+<body>
 
-  <!-- Hero -->
-  <section class="min-h-screen flex flex-col items-center justify-center px-4 text-center">
-    <!-- aman logo -->
-    <div class="mb-8">
-      <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#22c55e" stop-opacity="0.25"/>
-            <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
-          </radialGradient>
-          <filter id="blur">
-            <feGaussianBlur stdDeviation="3" result="blur"/>
-            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-          </filter>
-        </defs>
-        <!-- glow bg -->
-        <circle cx="36" cy="36" r="36" fill="url(#glow)"/>
-        <!-- outer ring -->
-        <circle cx="36" cy="36" r="30" stroke="#22c55e" stroke-width="1.5" stroke-opacity="0.3"/>
-        <!-- nodes -->
-        <circle cx="36" cy="14" r="4" fill="#22c55e"/>
-        <circle cx="55" cy="47" r="4" fill="#22c55e" fill-opacity="0.7"/>
-        <circle cx="17" cy="47" r="4" fill="#22c55e" fill-opacity="0.7"/>
-        <!-- connector lines -->
-        <line x1="36" y1="14" x2="55" y2="47" stroke="#22c55e" stroke-width="1.5" stroke-opacity="0.5"/>
-        <line x1="36" y1="14" x2="17" y2="47" stroke="#22c55e" stroke-width="1.5" stroke-opacity="0.5"/>
-        <line x1="17" y1="47" x2="55" y2="47" stroke="#22c55e" stroke-width="1.5" stroke-opacity="0.5"/>
-        <!-- center dot -->
-        <circle cx="36" cy="36" r="3" fill="#22c55e" fill-opacity="0.9"/>
-        <!-- spokes to center -->
-        <line x1="36" y1="14" x2="36" y2="36" stroke="#22c55e" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="2 2"/>
-        <line x1="55" y1="47" x2="36" y2="36" stroke="#22c55e" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="2 2"/>
-        <line x1="17" y1="47" x2="36" y2="36" stroke="#22c55e" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="2 2"/>
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="15" stroke="#22c55e" stroke-width="1" stroke-opacity=".25"/>
+      <circle cx="16" cy="5" r="3" fill="#22c55e"/>
+      <circle cx="25.6" cy="21.5" r="3" fill="#22c55e" fill-opacity=".7"/>
+      <circle cx="6.4" cy="21.5" r="3" fill="#22c55e" fill-opacity=".7"/>
+      <line x1="16" y1="5" x2="25.6" y2="21.5" stroke="#22c55e" stroke-width="1.2" stroke-opacity=".45"/>
+      <line x1="16" y1="5" x2="6.4" y2="21.5" stroke="#22c55e" stroke-width="1.2" stroke-opacity=".45"/>
+      <line x1="6.4" y1="21.5" x2="25.6" y2="21.5" stroke="#22c55e" stroke-width="1.2" stroke-opacity=".45"/>
+      <circle cx="16" cy="16" r="2.2" fill="#22c55e" fill-opacity=".85"/>
+    </svg>
+    <span class="nav-logo-text">aman</span>
+  </a>
+  <div class="nav-links">
+    <a href="#showcases">Showcases</a>
+    <a href="#architecture">Architecture</a>
+    <a href="https://github.com/amanasmuei/aman">GitHub</a>
+    <a href="https://www.npmjs.com/package/@aman_asmuei/aman" class="nav-cta">Get started →</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="hero-badge reveal"><span class="bdot"></span>v0.4.0 — showcase command live</div>
+    <h1 class="reveal">Your AI companion,<br><em>configured.</em><br>Not coded.</h1>
+    <p class="hero-desc reveal">Persistent identity. Semantic memory. 13 real-world showcases. Deploy on Telegram, Discord, or the web — in minutes, not days.</p>
+    <div class="hero-cmds reveal">
+      <div>
+        <div class="cmd-label">↳ try without installing</div>
+        <div class="cmd-row">
+          <code>npx @aman_asmuei/aman</code>
+          <button class="cpbtn" onclick="cp(this,'npx @aman_asmuei/aman')">copy</button>
+        </div>
+      </div>
+      <div>
+        <div class="cmd-label">↳ install for the aman shorthand</div>
+        <div class="cmd-row">
+          <code>npm i -g @aman_asmuei/aman</code>
+          <button class="cpbtn" onclick="cp(this,'npm i -g @aman_asmuei/aman')">copy</button>
+        </div>
+      </div>
+    </div>
+    <div class="hero-sub reveal">
+      <span>MIT License</span><span style="color:var(--border)">·</span>
+      <span>Node.js 18+</span><span style="color:var(--border)">·</span>
+      <span>Open source</span>
+    </div>
+  </div>
+  <div class="terminal-wrap reveal">
+    <div class="terminal">
+      <div class="tbar">
+        <div class="tdots"><div class="tdot"></div><div class="tdot"></div><div class="tdot"></div></div>
+        <div class="ttitle">zsh — aman showcase</div>
+      </div>
+      <div class="tbody" id="tbody">
+        <span class="tline"><span class="tprompt">~ </span><span class="tcursor"></span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat reveal"><span class="statn" data-to="13">0</span><div class="statl">Ready-to-use showcases</div></div>
+  <div class="stat reveal"><span class="statn" data-to="7">0</span><div class="statl">Architecture layers</div></div>
+  <div class="stat reveal"><span class="statn" data-to="25">0</span><div class="statl">Personality archetypes</div></div>
+</div>
+
+<section class="how">
+  <div class="how-head reveal">
+    <div class="stag">// getting started</div>
+    <h2 class="stitle">Up and running<br>in three steps.</h2>
+  </div>
+  <div class="steps">
+    <div class="step reveal">
+      <div class="stepn">01 —</div><span class="stepicon">⚡</span>
+      <h3>Run in 30 seconds</h3>
+      <p>Run <code>npx @aman_asmuei/aman</code> to create your AI identity. Pick from 25 personality archetypes — no coding required.</p>
+    </div>
+    <div class="step reveal">
+      <div class="stepn">02 —</div><span class="stepicon">🎯</span>
+      <h3>Pick a showcase</h3>
+      <p>Run <code>npx @aman_asmuei/aman showcase</code> to browse 13 real-world companions. Medication reminders, business trackers, language tutors.</p>
+    </div>
+    <div class="step reveal">
+      <div class="stepn">03 —</div><span class="stepicon">🚀</span>
+      <h3>Deploy anywhere</h3>
+      <p>Telegram, Discord, webhook — or fully local with Ollama. Zero application code. Just configuration and your API key.</p>
+    </div>
+  </div>
+</section>
+
+<section class="scsec" id="showcases">
+  <div class="reveal">
+    <div class="stag">// showcases</div>
+    <h2 class="stitle">13 companions,<br>ready to install.</h2>
+    <p class="sdesc">Zero application code. Configuration-only AI companions for real-world use cases.</p>
+  </div>
+  <div class="fbar reveal" id="fbar"></div>
+  <div class="scgrid" id="scgrid"></div>
+</section>
+
+<section class="arch" id="architecture">
+  <div class="reveal">
+    <div class="stag">// architecture</div>
+    <h2 class="stitle">7 layers.<br>One companion.</h2>
+    <p class="sdesc">Every aspect of your AI is a separate, git-versioned layer. Mix, match, and upgrade independently.</p>
+  </div>
+  <div class="archgrid">
+    <div class="layers reveal" id="layers"></div>
+    <div class="archpanel reveal" id="archpanel">
+      <div class="ptag">SELECT A LAYER</div>
+      <div class="ptitle">Click any layer</div>
+      <div class="pdesc">Each of the 7 layers handles a distinct concern. Together they form a complete, customizable AI companion.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footleft">
+    <a href="#" class="nav-logo">
+      <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="5" r="3" fill="#22c55e"/>
+        <circle cx="25.6" cy="21.5" r="3" fill="#22c55e" fill-opacity=".7"/>
+        <circle cx="6.4" cy="21.5" r="3" fill="#22c55e" fill-opacity=".7"/>
+        <line x1="16" y1="5" x2="25.6" y2="21.5" stroke="#22c55e" stroke-width="1.5" stroke-opacity=".45"/>
+        <line x1="16" y1="5" x2="6.4" y2="21.5" stroke="#22c55e" stroke-width="1.5" stroke-opacity=".45"/>
+        <line x1="6.4" y1="21.5" x2="25.6" y2="21.5" stroke="#22c55e" stroke-width="1.5" stroke-opacity=".45"/>
       </svg>
-    </div>
-    <h1 class="text-5xl md:text-6xl font-bold mb-4 text-white">
-      Your AI companion,<br class="hidden md:block" />
-      <span class="text-brand-500">in one command.</span>
-    </h1>
-    <p class="text-xl text-gray-400 mb-10 max-w-xl">
-      Persistent identity. Semantic memory. Real-world showcases.
-      Runs on Claude, OpenAI, or Ollama — fully local.
-    </p>
-    <div class="w-full max-w-sm space-y-2 mb-4">
-      <p class="text-xs text-gray-500 text-left mb-1">Try without installing:</p>
-      <div class="flex items-center gap-2 bg-gray-900 border border-gray-700 rounded-xl px-5 py-3 w-full">
-        <code class="text-brand-500 text-sm flex-1 text-left">npx @aman_asmuei/aman</code>
-        <button onclick="navigator.clipboard.writeText('npx @aman_asmuei/aman')"
-          class="copy-btn text-xs text-gray-500 hover:text-white transition px-2 py-1 rounded border border-gray-700 hover:border-gray-500">
-          copy
-        </button>
-      </div>
-      <p class="text-xs text-gray-500 text-left mb-1 pt-1">Or install globally for the <code class="text-gray-400">aman</code> command:</p>
-      <div class="flex items-center gap-2 bg-gray-900 border border-gray-700 rounded-xl px-5 py-3 w-full">
-        <code class="text-brand-500 text-sm flex-1 text-left">npm i -g @aman_asmuei/aman</code>
-        <button onclick="navigator.clipboard.writeText('npm i -g @aman_asmuei/aman')"
-          class="copy-btn text-xs text-gray-500 hover:text-white transition px-2 py-1 rounded border border-gray-700 hover:border-gray-500">
-          copy
-        </button>
-      </div>
-    </div>
-    <p class="text-gray-600 text-sm">Open source · MIT · Node.js 18+</p>
-    <div class="mt-8 flex gap-4">
-      <a href="https://github.com/amanasmuei/aman" class="text-gray-400 hover:text-white text-sm transition">GitHub →</a>
-      <a href="https://www.npmjs.com/package/@aman_asmuei/aman" class="text-gray-400 hover:text-white text-sm transition">npm →</a>
-    </div>
-  </section>
+      <span class="nav-logo-text">aman</span>
+    </a>
+    <p>MIT License · built by <a href="https://github.com/amanasmuei" style="color:var(--muted);text-decoration:none;">amanasmuei</a></p>
+  </div>
+  <div class="footlinks">
+    <a href="https://github.com/amanasmuei/aman">GitHub</a>
+    <a href="https://www.npmjs.com/package/@aman_asmuei/aman">npm</a>
+    <a href="https://github.com/amanasmuei/aman-showcase">Showcases</a>
+  </div>
+</footer>
 
-  <!-- How it works -->
-  <section class="py-24 px-4 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-16">How it works</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800">
-        <div class="text-3xl mb-4">1️⃣</div>
-        <h3 class="font-bold text-lg mb-2">Setup in 30 seconds</h3>
-        <p class="text-gray-400 text-sm">Run <code class="text-brand-500">npx @aman_asmuei/aman</code> to try it instantly, or <code class="text-brand-500">npm i -g @aman_asmuei/aman</code> to get the <code class="text-gray-300">aman</code> shorthand.</p>
-      </div>
-      <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800">
-        <div class="text-3xl mb-4">2️⃣</div>
-        <h3 class="font-bold text-lg mb-2">Pick a showcase</h3>
-        <p class="text-gray-400 text-sm">Run <code class="text-brand-500">npx @aman_asmuei/aman showcase rutin</code> to install any of 13 real-world AI companions — medication reminders, business trackers, and more.</p>
-      </div>
-      <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800">
-        <div class="text-3xl mb-4">3️⃣</div>
-        <h3 class="font-bold text-lg mb-2">Deploy anywhere</h3>
-        <p class="text-gray-400 text-sm">Run on Telegram, Discord, or the web. One-click deploy to Render. Or run fully local with Ollama — no API key needed.</p>
-      </div>
-    </div>
-  </section>
+<script>
+function cp(btn,text){navigator.clipboard.writeText(text);btn.textContent='copied!';btn.classList.add('ok');setTimeout(()=>{btn.textContent='copy';btn.classList.remove('ok');},2000);}
 
-  <!-- Showcases -->
-  <section class="py-24 px-4 max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-4">13 Ready-to-Use Companions</h2>
-    <p class="text-center text-gray-400 mb-16">Zero application code. Just configuration and content.</p>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="showcases"></div>
-  </section>
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
 
-  <!-- Ecosystem -->
-  <section class="py-24 px-4 max-w-4xl mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-16">7-Layer Architecture</h2>
-    <div class="grid sm:grid-cols-2 gap-4">
-      <div class="bg-gray-900 rounded-xl p-5 border border-gray-800">
-        <span class="text-brand-500 font-mono text-sm">acore</span>
-        <p class="text-gray-400 text-sm mt-1">Identity — who your AI is. 25 personality archetypes, git-versioned.</p>
-      </div>
-      <div class="bg-gray-900 rounded-xl p-5 border border-gray-800">
-        <span class="text-brand-500 font-mono text-sm">amem</span>
-        <p class="text-gray-400 text-sm mt-1">Memory — semantic recall, knowledge graph, conflict detection.</p>
-      </div>
-      <div class="bg-gray-900 rounded-xl p-5 border border-gray-800">
-        <span class="text-brand-500 font-mono text-sm">aflow</span>
-        <p class="text-gray-400 text-sm mt-1">Workflows — reusable multi-step processes your AI follows.</p>
-      </div>
-      <div class="bg-gray-900 rounded-xl p-5 border border-gray-800">
-        <span class="text-brand-500 font-mono text-sm">arules</span>
-        <p class="text-gray-400 text-sm mt-1">Guardrails — what your AI will and won't do.</p>
-      </div>
-      <div class="bg-gray-900 rounded-xl p-5 border border-gray-800">
-        <span class="text-brand-500 font-mono text-sm">askill</span>
-        <p class="text-gray-400 text-sm mt-1">Skills — domain expertise, levels up with use.</p>
-      </div>
-      <div class="bg-gray-900 rounded-xl p-5 border border-gray-800">
-        <span class="text-brand-500 font-mono text-sm">akit</span>
-        <p class="text-gray-400 text-sm mt-1">Tools — 25 MCP-ready integrations (GitHub, Slack, databases…).</p>
-      </div>
-      <div class="bg-gray-900 rounded-xl p-5 border border-gray-800 sm:col-span-2">
-        <span class="text-brand-500 font-mono text-sm">aeval</span>
-        <p class="text-gray-400 text-sm mt-1">Evaluation — session tracking, trust metrics, relationship health.</p>
-      </div>
-    </div>
-  </section>
+const ro=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*70);ro.unobserve(e.target);}});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 
-  <!-- Footer -->
-  <footer class="border-t border-gray-800 py-10 px-4 text-center text-gray-600 text-sm">
-    <p>aman ecosystem · MIT License · built by <a href="https://github.com/amanasmuei" class="hover:text-white transition">amanasmuei</a></p>
-    <div class="mt-3 flex justify-center gap-6">
-      <a href="https://github.com/amanasmuei/aman" class="hover:text-white transition">GitHub</a>
-      <a href="https://www.npmjs.com/package/@aman_asmuei/aman" class="hover:text-white transition">npm</a>
-      <a href="https://github.com/amanasmuei/aman-showcase" class="hover:text-white transition">Showcases</a>
-    </div>
-  </footer>
+const co=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    const el=entry.target.querySelector('[data-to]');
+    if(!el)return;
+    co.unobserve(entry.target);
+    const target=+el.dataset.to,step=Math.ceil(target/22);
+    let n=0;const t=setInterval(()=>{el.textContent=Math.min(n+=step,target);if(n>=target)clearInterval(t);},38);
+  });
+},{threshold:0.5});
+document.querySelectorAll('.stat').forEach(el=>co.observe(el));
 
-  <script>
-    const SHOWCASES = [
-      { name: "rutin", title: "Rutin", emoji: "💊", desc: "Medication reminders for elderly parents. Streak tracking, family mode.", lang: "ms" },
-      { name: "kedai", title: "Kedai", emoji: "🏪", desc: "Small business assistant for restaurants, salons, and laundries.", lang: "ms+en" },
-      { name: "monitor", title: "Monitor", emoji: "📡", desc: "Price watching and website monitoring with real-time alerts.", lang: "en" },
-      { name: "bahasa", title: "Bahasa", emoji: "🗣️", desc: "Malay/English language tutor with structured curriculum.", lang: "ms+en" },
-      { name: "quran", title: "Quran", emoji: "📖", desc: "Quranic Arabic vocabulary with 12 detailed lessons.", lang: "ms+en" },
-      { name: "fitness", title: "Fitness", emoji: "🏋️", desc: "Personal trainer with workout tracking and form guidance.", lang: "en" },
-      { name: "freelancer", title: "Freelancer", emoji: "💼", desc: "Invoice and client tracking for independent workers.", lang: "en" },
-      { name: "team", title: "Team", emoji: "👥", desc: "Team standups, task tracking, and institutional memory.", lang: "en" },
-      { name: "money", title: "Money", emoji: "💰", desc: "Personal finance tracking and budget monitoring.", lang: "en" },
-      { name: "feed", title: "Feed", emoji: "📰", desc: "Personalized news aggregation and daily digests.", lang: "en" },
-      { name: "support", title: "Support", emoji: "🎧", desc: "Customer support with context memory and escalation.", lang: "en" },
-      { name: "iot", title: "IoT", emoji: "🌡️", desc: "Sensor monitoring with anomaly detection and threshold alerts.", lang: "en" },
-      { name: "muslim", title: "Muslim", emoji: "🌙", desc: "Islamic companion with prayer times, hadith, and du'a.", lang: "ms+en" },
-    ];
+// Terminal
+const TLINES=[
+  {type:'cmd',text:'npx @aman_asmuei/aman showcase rutin'},
+  {type:'out',c:'cd',t:''},
+  {type:'out',c:'cw',t:'┌  aman showcase — try any AI companion in one command'},
+  {type:'out',c:'cd',t:'│'},
+  {type:'out',c:'cw',t:'◇  Install Rutin — Medication Reminder?'},
+  {type:'out',c:'cg',t:'│  Yes'},
+  {type:'out',c:'cd',t:'│'},
+  {type:'out',c:'cw',t:'◇  Installing showcase files...'},
+  {type:'out',c:'cd',t:'│'},
+  {type:'out',c:'cg',t:'✓  ~/.acore/core.md'},
+  {type:'out',c:'cg',t:'✓  ~/.aflow/flow.md'},
+  {type:'out',c:'cg',t:'✓  ~/.arules/rules.md'},
+  {type:'out',c:'cg',t:'✓  .env.example'},
+  {type:'out',c:'cd',t:'│'},
+  {type:'out',c:'cw',t:'◆  Next steps'},
+  {type:'out',c:'cm',t:'│  1. Copy .env.example → .env'},
+  {type:'out',c:'cm',t:'│  2. Add your ANTHROPIC_API_KEY'},
+  {type:'out',c:'cm',t:'│  3. Run: npx @aman_asmuei/achannel serve'},
+  {type:'out',c:'cd',t:'│'},
+  {type:'out',c:'cg',t:'└  ✓ Rutin is ready!'},
+];
+const tbody=document.getElementById('tbody');
+let running=false;
+function addLine(text,cls){const s=document.createElement('span');s.className='tline '+cls;s.textContent=text;tbody.appendChild(s);tbody.scrollTop=tbody.scrollHeight;}
+function runTerm(){
+  if(running)return;running=true;let idx=0;
+  function next(){
+    if(idx>=TLINES.length){setTimeout(()=>{tbody.innerHTML='<span class="tline"><span class="tprompt">~ </span><span class="tcursor"></span></span>';running=false;setTimeout(runTerm,600);},3200);return;}
+    const line=TLINES[idx++];
+    if(line.type==='cmd'){
+      const last=tbody.querySelector('.tline:last-child');
+      last.textContent='';
+      const pr=document.createElement('span');pr.className='tprompt';pr.textContent='~ ';
+      const ty=document.createElement('span');ty.className='tcmd';
+      const cur=document.createElement('span');cur.className='tcursor';
+      last.appendChild(pr);last.appendChild(ty);last.appendChild(cur);
+      let i=0;const iv=setInterval(()=>{ty.textContent=line.text.slice(0,++i);if(i>=line.text.length){clearInterval(iv);cur.remove();setTimeout(()=>{addLine('','cd');next();},280);}},32);
+    } else {
+      addLine(line.t,line.c);setTimeout(next,line.c==='cd'?30:55);
+    }
+  }
+  setTimeout(next,700);
+}
+const to=new IntersectionObserver(entries=>{if(entries[0].isIntersecting)runTerm();},{threshold:0.4});
+to.observe(document.querySelector('.terminal'));
 
-    const container = document.getElementById("showcases");
-    SHOWCASES.forEach(s => {
-      container.innerHTML += `
-        <div class="bg-gray-900 rounded-2xl p-6 border border-gray-800 flex flex-col gap-3">
-          <div class="flex items-center gap-3">
-            <span class="text-3xl">${s.emoji}</span>
-            <div>
-              <h3 class="font-bold">${s.title}</h3>
-              <span class="text-xs text-gray-500">${s.lang === 'en' ? 'English' : s.lang === 'ms' ? 'Bahasa Melayu' : 'EN + MS'}</span>
-            </div>
-          </div>
-          <p class="text-gray-400 text-sm flex-1">${s.desc}</p>
-          <div class="flex items-center gap-2 bg-gray-950 rounded-lg px-3 py-2 text-xs">
-            <code class="text-brand-500 flex-1">npx @aman_asmuei/aman showcase ${s.name}</code>
-            <button onclick="navigator.clipboard.writeText('npx @aman_asmuei/aman showcase ${s.name}')"
-              class="copy-btn text-gray-600 hover:text-white transition">copy</button>
-          </div>
-        </div>`;
-    });
-  </script>
+// Showcases data
+const SC=[
+  {name:"rutin",title:"Rutin",emoji:"💊",desc:"Daily medication reminders for elderly parents. Streak tracking, family check-in mode.",lang:"MS",cat:"health"},
+  {name:"kedai",title:"Kedai",emoji:"🏪",desc:"Transaction tracking for restaurants, salons, and laundries. Daily reports included.",lang:"EN+MS",cat:"business"},
+  {name:"monitor",title:"Monitor",emoji:"📡",desc:"Price watching and website monitoring with real-time alerts and daily digests.",lang:"EN",cat:"monitoring"},
+  {name:"bahasa",title:"Bahasa",emoji:"🗣️",desc:"Malay/English language learning with a structured 10-lesson curriculum.",lang:"EN+MS",cat:"learning"},
+  {name:"quran",title:"Quran",emoji:"📖",desc:"Quranic Arabic vocabulary with 12 structured lessons and ayah context.",lang:"EN+MS",cat:"learning"},
+  {name:"fitness",title:"Fitness",emoji:"🏋️",desc:"Workout tracking with progressive overload guidance and nutrition tips.",lang:"EN",cat:"health"},
+  {name:"freelancer",title:"Freelancer",emoji:"💼",desc:"Invoice and client tracking for independent workers and consultants.",lang:"EN",cat:"business"},
+  {name:"team",title:"Team",emoji:"👥",desc:"Standups, task tracking, and institutional memory for small groups.",lang:"EN",cat:"business"},
+  {name:"money",title:"Money",emoji:"💰",desc:"Personal finance tracking, budget monitoring, and spending insights.",lang:"EN",cat:"lifestyle"},
+  {name:"feed",title:"Feed",emoji:"📰",desc:"Personalized news aggregation with signal/noise filtering and daily digests.",lang:"EN",cat:"lifestyle"},
+  {name:"support",title:"Support",emoji:"🎧",desc:"Customer support with context memory, escalation logic, and history.",lang:"EN",cat:"business"},
+  {name:"iot",title:"IoT",emoji:"🌡️",desc:"Sensor monitoring for smart homes and farms with anomaly detection.",lang:"EN",cat:"monitoring"},
+  {name:"muslim",title:"Muslim",emoji:"🌙",desc:"Islamic companion with prayer times, hadith, du'a, and Malay support.",lang:"EN+MS",cat:"lifestyle"},
+];
+
+const CATS=[['all','All'],['health','Health'],['business','Business'],['learning','Learning'],['lifestyle','Lifestyle'],['monitoring','Monitoring']];
+const fbar=document.getElementById('fbar');
+CATS.forEach(([val,label])=>{
+  const b=document.createElement('button');
+  b.className='ftab'+(val==='all'?' on':'');b.dataset.f=val;b.textContent=label;
+  b.onclick=()=>{
+    document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('on'));b.classList.add('on');
+    document.querySelectorAll('.sccard').forEach(c=>c.classList.toggle('hide',val!=='all'&&c.dataset.cat!==val));
+  };
+  fbar.appendChild(b);
+});
+
+const grid=document.getElementById('scgrid');
+SC.forEach(s=>{
+  const d=document.createElement('div');
+  d.className='sccard';d.dataset.cat=s.cat;
+
+  const top=document.createElement('div');top.className='ctop';
+  const em=document.createElement('span');em.className='cemoji';em.textContent=s.emoji;
+  const lg=document.createElement('span');lg.className='clang';lg.textContent=s.lang;
+  top.appendChild(em);top.appendChild(lg);
+
+  const ti=document.createElement('div');ti.className='ctitle';ti.textContent=s.title;
+  const de=document.createElement('div');de.className='cdesc';de.textContent=s.desc;
+
+  const cmd=document.createElement('div');cmd.className='ccmd';
+  const co=document.createElement('code');co.textContent='npx @aman_asmuei/aman showcase '+s.name;
+  const cb=document.createElement('button');cb.className='ccopy';cb.title='Copy';
+  cb.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+  const cmdText='npx @aman_asmuei/aman showcase '+s.name;
+  cb.onclick=()=>{navigator.clipboard.writeText(cmdText);cb.style.color='var(--green)';setTimeout(()=>cb.style.color='',2000);};
+  cmd.appendChild(co);cmd.appendChild(cb);
+
+  d.appendChild(top);d.appendChild(ti);d.appendChild(de);d.appendChild(cmd);
+  grid.appendChild(d);
+});
+
+// Architecture
+const ARCH=[
+  {name:'acore',label:'Identity',title:'Identity Layer',desc:'Who your AI is. Define personality, tone, backstory, and values across 25 archetypes. Git-versioned so you can evolve your companion over time.',features:['25 personality archetypes','Git-versioned identity','Tone & values config','Custom backstory']},
+  {name:'amem',label:'Memory',title:'Memory Layer',desc:'Semantic recall with knowledge graph, conflict detection, and automated memory management. Your AI remembers everything that matters.',features:['Semantic memory recall','Knowledge graph','Conflict detection','Auto memory management']},
+  {name:'aflow',label:'Workflows',title:'Workflow Layer',desc:'Reusable multi-step processes your AI follows. Define complex behaviors once, reuse everywhere.',features:['Multi-step processes','Reusable flow templates','Conditional branching','Event triggers']},
+  {name:'arules',label:'Guardrails',title:'Guardrails Layer',desc:"What your AI will and won't do. Define hard limits, soft preferences, and escalation paths.",features:['Hard & soft limits','Escalation paths','Topic restrictions','Safety policies']},
+  {name:'askill',label:'Skills',title:'Skills Layer',desc:'Domain expertise that levels up with use. Install skills for specific domains — medical, finance, language tutoring, and more.',features:['Domain expertise packs','Skill composition','Proficiency tracking','Community skills']},
+  {name:'akit',label:'Tools',title:'Tools Layer',desc:'25 MCP-ready integrations — GitHub, Slack, databases, calendar, and more. Connect your AI to the real world.',features:['25 built-in integrations','MCP protocol support','Custom tool registry','OAuth management']},
+  {name:'aeval',label:'Evaluation',title:'Evaluation Layer',desc:'Session tracking, trust metrics, and relationship health. Understand how your AI is performing and improve over time.',features:['Session analytics','Trust scoring','Relationship health','Performance reports']},
+];
+
+const layersEl=document.getElementById('layers');
+const panel=document.getElementById('archpanel');
+ARCH.forEach((l,i)=>{
+  const el=document.createElement('div');el.className='layer';
+  const n=document.createElement('span');n.className='lnum';n.textContent='0'+(i+1);
+  const nm=document.createElement('span');nm.className='lname';nm.textContent=l.name;
+  const lb=document.createElement('span');lb.className='llabel';lb.textContent=l.label;
+  const ar=document.createElement('span');ar.className='larr';ar.textContent='→';
+  el.appendChild(n);el.appendChild(nm);el.appendChild(lb);el.appendChild(ar);
+  el.onclick=()=>{
+    document.querySelectorAll('.layer').forEach(x=>x.classList.remove('on'));el.classList.add('on');
+    panel.textContent='';
+    const pt=document.createElement('div');pt.className='ptag';pt.textContent=l.name.toUpperCase()+' · LAYER 0'+(i+1);
+    const ph=document.createElement('div');ph.className='ptitle';ph.textContent=l.title;
+    const pd=document.createElement('div');pd.className='pdesc';pd.textContent=l.desc;
+    const pf=document.createElement('div');pf.className='pfeats';
+    l.features.forEach(f=>{const fi=document.createElement('div');fi.className='pfeat';fi.textContent=f;pf.appendChild(fi);});
+    panel.appendChild(pt);panel.appendChild(ph);panel.appendChild(pd);panel.appendChild(pf);
+  };
+  layersEl.appendChild(el);
+});
+</script>
 </body>
 </html>
